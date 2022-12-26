@@ -1,0 +1,9 @@
+{
+  "environment": "dev",
+  "dev": {
+    "url": "https://www.saucedemo.com/inventory.html"
+  },
+  "test": {
+    "url": "http://automationpractice.com/index.php"
+  }
+}

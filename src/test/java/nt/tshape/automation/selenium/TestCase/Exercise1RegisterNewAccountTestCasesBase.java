@@ -17,7 +17,7 @@ public class Exercise1RegisterNewAccountTestCasesBase extends WebDriverTestNGSet
         AutomationPracticeAccountPage automationPracticeAccountPage = new AutomationPracticeAccountPage(getDriver(), getTestContext());
 
         automationPracticeIndexPage
-                .goToPageByURL("http://automationpractice.com/index.php")
+                .openPage()
                 .clickLinkButtonByName("Sign in")
                 .inputToEmailAddressWithEmail(generateTestEmail())
                 .clickButtonByName("Create an account")
