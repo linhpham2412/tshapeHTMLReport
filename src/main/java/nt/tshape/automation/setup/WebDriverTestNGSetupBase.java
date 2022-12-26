@@ -8,6 +8,8 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
+import java.net.MalformedURLException;
+
 public class WebDriverTestNGSetupBase {
     private TestContext testContext;
     public WebDriver getDriver() {
@@ -25,7 +27,7 @@ public class WebDriverTestNGSetupBase {
 
     @Parameters({"browser"})
     @BeforeSuite
-    public void beforeSuiteSetUp(@Optional("chrome") String browser) {
+    public void beforeSuiteSetUp(@Optional("chrome") String browser) throws MalformedURLException {
         WebDriverManager.iniDriver(browser);
         testContext = new TestContext();
     }

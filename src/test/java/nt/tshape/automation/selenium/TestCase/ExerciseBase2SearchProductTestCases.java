@@ -15,7 +15,7 @@ public class ExerciseBase2SearchProductTestCases extends WebDriverTestNGSetupBas
         AutomationPracticeIndexPage automationPracticeIndexPage = new AutomationPracticeIndexPage(getDriver(), getTestContext());
 
         automationPracticeIndexPage
-                .goToPageByURL("http://automationpractice.com/index.php")
+                .openPage()
                 .moveToMenuWithNameAndClickOnButtonByFieldName("Women", "T-shirts")
                 .focusOnProductInListByIndex("1")
                 .getDetailDataOfFocusedProductByName(Constant.PRODUCT_NAME)
