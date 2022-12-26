@@ -8,20 +8,20 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
+import static org.testng.Assert.assertEquals;
+
 public class ActionManager {
-    private WebDriver driver;
-    private WebDriverWait wait;
-    private TestContext testContext;
-    StringBuilder printOutInfo = null;
+    private final WebDriver driver;
+    private final WebDriverWait wait;
+    private final TestContext testContext;
 
     public ActionManager(WebDriver driver, TestContext testContext) {
         this.driver = driver;
         wait = new WebDriverWait(driver, Constant.SHORT_TIME);
         this.testContext = testContext;
-        printOutInfo = new StringBuilder();
     }
 
-    public TestContext getTestContext(){
+    public TestContext getTestContext() {
         return testContext;
     }
 
@@ -71,42 +71,38 @@ public class ActionManager {
         try {
             WebElement workingElement = findElement(elementToSendKey);
             workingElement.sendKeys(keysToSend);
-            printOutInfo.append("Sent [").append(keysToSend).append("] into element [").append(elementToSendKey.toString()).append("]");
+            System.out.println("Sent [" + keysToSend + "] into element [" + elementToSendKey + "]");
         } catch (StaleElementReferenceException staleElementReferenceException) {
             sendKeys(elementToSendKey, keysToSend);
         } catch (Exception e) {
-            printOutInfo.append("Cannot send [").append(keysToSend).append("] into element [").append(elementToSendKey.toString()).append("]");
+            System.out.println("Cannot send [" + keysToSend + "] into element [" + elementToSendKey + "]");
             throw e;
         }
-        System.out.println(printOutInfo);
     }
 
     public void clearText(String elementToClearText) {
         try {
             WebElement workingElement = findElement(elementToClearText);
             workingElement.clear();
-            printOutInfo.append("Cleared text in element [").append(elementToClearText.toString()).append("]");
+            System.out.println("Cleared text in element [" + elementToClearText + "]");
         } catch (StaleElementReferenceException staleElementReferenceException) {
             clearText(elementToClearText);
         } catch (Exception e) {
-            printOutInfo.append("Cannot clear text of element [").append(elementToClearText.toString()).append("]");
+            System.out.println("Cannot clear text of element [" + elementToClearText + "]");
             throw e;
         }
-        System.out.println(printOutInfo);
     }
 
     public String getText(String elementToGetText) {
         try {
             WebElement workingElement = findElement(elementToGetText);
             String resultText = workingElement.getTagName().equalsIgnoreCase("input") ? workingElement.getAttribute("value") : workingElement.getText();
-            printOutInfo.append("Got text [").append(resultText).append("] from element [").append(elementToGetText.toString()).append("]");
-            System.out.println(printOutInfo);
+            System.out.println("Got text [" + resultText + "] from element [" + elementToGetText + "]");
             return resultText;
         } catch (StaleElementReferenceException staleElementReferenceException) {
             return getText(elementToGetText);
         } catch (Exception e) {
-            printOutInfo.append("Cannot get text from element [").append(elementToGetText.toString()).append("]");
-            System.out.println(printOutInfo);
+            System.out.println("Cannot get text from element [" + elementToGetText + "]");
             throw e;
         }
     }
@@ -114,13 +110,11 @@ public class ActionManager {
     public void click(String elementToClick) {
         try {
             findElement(elementToClick).click();
-            printOutInfo.append("Clicked on the element [").append(elementToClick.toString()).append("]");
-            System.out.println(printOutInfo);
+            System.out.println("Clicked on the element [" + elementToClick + "]");
         } catch (StaleElementReferenceException staleElementReferenceException) {
             click(elementToClick);
         } catch (Exception e) {
-            printOutInfo.append("Cannot click on element [").append(elementToClick.toString()).append("]");
-            System.out.println(printOutInfo);
+            System.out.println("Cannot click on element [" + elementToClick + "]");
             throw e;
         }
     }
@@ -128,11 +122,9 @@ public class ActionManager {
     public void openUrl(String urlToBeOpen) {
         try {
             driver.get(urlToBeOpen);
-            printOutInfo.append("Browser opened page with url [").append(urlToBeOpen).append("] successfully!");
-            System.out.println(printOutInfo);
+            System.out.println("Browser opened page with url [" + urlToBeOpen + "] successfully!");
         } catch (Exception e) {
-            printOutInfo.append("Browser cannot opened page with url [").append(urlToBeOpen).append("]");
-            System.out.println(printOutInfo);
+            System.out.println("Browser cannot opened page with url [" + urlToBeOpen + "]");
             throw e;
         }
     }
@@ -150,15 +142,12 @@ public class ActionManager {
             Actions actions = new Actions(driver);
             actions.moveToElement(findElement(elementMovingToAndClick));
             actions.click().build().perform();
-            printOutInfo.append("Moved and clicked on element [").append(elementMovingToAndClick).append("]");
-            System.out.println(printOutInfo);
+            System.out.println("Moved and clicked on element [" + elementMovingToAndClick + "]");
         } catch (StaleElementReferenceException staleElementReferenceException) {
             mouseMoveToElementAndClick(elementMovingToAndClick);
-            printOutInfo.append("Moved and clicked on element [").append(elementMovingToAndClick).append("]");
-            System.out.println(printOutInfo);
+            System.out.println("Moved and clicked on element [" + elementMovingToAndClick + "]");
         } catch (Exception e) {
-            printOutInfo.append("Cannot move and click on element [").append(elementMovingToAndClick).append("]");
-            System.out.println(printOutInfo);
+            System.out.println("Cannot move and click on element [" + elementMovingToAndClick + "]");
             throw e;
         }
     }
@@ -167,20 +156,22 @@ public class ActionManager {
         try {
             Select workingDropDownField = new Select(findElement(elementDropDownField));
             workingDropDownField.selectByValue(fieldValue);
-            printOutInfo.append("Opened drop down field [").append(elementDropDownField).append("] and select value [").append(fieldValue).append("]");
-            System.out.println(printOutInfo);
+            System.out.println("Opened drop down field [" + elementDropDownField + "] and select value [" + fieldValue + "]");
         } catch (StaleElementReferenceException staleElementReferenceException) {
             selectDropDownFieldWithValue(elementDropDownField, fieldValue);
-            printOutInfo.append("Opened drop down field [").append(elementDropDownField).append("] and select value [").append(fieldValue).append("]");
-            System.out.println(printOutInfo);
+            System.out.println("Opened drop down field [" + elementDropDownField + "] and select value [" + fieldValue + "]");
         } catch (Exception e) {
-            printOutInfo.append("Can not opene drop down field [").append(elementDropDownField).append("] and select value [").append(fieldValue).append("]");
-            System.out.println(printOutInfo);
+            System.out.println("Can not opene drop down field [" + elementDropDownField + "] and select value [" + fieldValue + "]");
             throw e;
         }
     }
 
     public Select getDropDownOptionsList(String elementDropDownField) {
         return new Select(findElement(elementDropDownField));
+    }
+
+    public void assertEqual(String expected, String actual) {
+        System.out.println("Compare value [" + expected + "] is equal with: [" + actual + "]");
+        assertEquals(expected, actual, "Assertion failed because: [" + expected + "] is not equal with: [" + actual + "]");
     }
 }
