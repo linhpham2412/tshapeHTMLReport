@@ -53,7 +53,7 @@ public class HTMLReporter {
         File saveLocation = new File(getCaptureImageLocation() + imageName + ".png");
         Files.copy(captureLocation.toPath(), saveLocation.toPath());
 
-        currentReportNode.addScreenCaptureFromPath(imageName + ".png");
+        currentReportNode.addScreenCaptureFromPath(getCaptureImageLocation() + imageName + ".png");
     }
 
     public ExtentReports getExtentReports() {
