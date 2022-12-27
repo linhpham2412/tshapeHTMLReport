@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -176,7 +177,7 @@ public class ActionManager {
         return new Select(findElement(elementDropDownField));
     }
 
-    public void assertEqual(String objectName, String expected, String actual) {
+    public void assertEqual(String objectName, String expected, String actual) throws IOException {
         System.out.println("Compare value [" + expected + "] is equal with: [" + actual + "]");
         try {
             assertEquals(expected, actual);
@@ -185,6 +186,7 @@ public class ActionManager {
         } catch (AssertionError e) {
             HTMLReporter.getCurrentReportNode().fail("Assertion failed because object [" + objectName + "] has expected value: [" + expected + "] is not equal with actual value: [" + actual + "]");
             System.out.println("Assertion failed because object [" + objectName + "] has expected value: [" + expected + "] is not equal with actual value: [" + actual + "]");
+            HTMLReporter.takesScreenshot(driver, "CaptureImageOnFailedCase_");
         }
     }
 }

@@ -4,13 +4,15 @@ import nt.tshape.automation.selenium.PageModal.SaucedemoIndex;
 import nt.tshape.automation.setup.WebDriverTestNGSetupBase;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
+
 import static nt.tshape.automation.selenium.Utils.generateRandomNumberInRange;
 import static nt.tshape.automation.selenium.Utils.generateRandomTestCharacters;
 
 public class Buy1ProductFlowSwagLabs extends WebDriverTestNGSetupBase {
 
     @Test(alwaysRun = true)
-    public void BuyProductE2EFlow() {
+    public void BuyProductE2EFlow() throws IOException {
         SaucedemoIndex saucedemoIndex = new SaucedemoIndex(getDriver(), getTestContext());
         saucedemoIndex
                 .openPage()

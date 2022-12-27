@@ -5,6 +5,8 @@ import nt.tshape.automation.selenium.ActionManager;
 import nt.tshape.automation.selenium.TestContext;
 import org.openqa.selenium.WebDriver;
 
+import java.io.IOException;
+
 public class SaucedemoIndex extends ActionManager {
     //Locator
     private final String selectItemInListByName = "xpath=//div[@class='inventory_item_name' and text()='%s']";
@@ -119,56 +121,62 @@ public class SaucedemoIndex extends ActionManager {
     }
 
     //Verify
-    public SaucedemoIndex verifyBadgeDisplayWithNumber(String expectedNumberValue) {
+    public SaucedemoIndex verifyBadgeDisplayWithNumber(String expectedNumberValue) throws IOException {
         //Act
         String actualNumberValue = getText(shoppingCartBadgeLocator);
+        highlightElement(findElement(shoppingCartBadgeLocator));
 
         //Verify
         assertEqual("Badge Number", expectedNumberValue, actualNumberValue);
         return this;
     }
 
-    public SaucedemoIndex verifyPageTitleWithValue(String expectedTitle) {
+    public SaucedemoIndex verifyPageTitleWithValue(String expectedTitle) throws IOException {
         //Act
         String actualPageTitle = getText(pageTitle);
+        highlightElement(findElement(pageTitle));
 
         //Verify
         assertEqual("Page Title", expectedTitle, actualPageTitle);
         return this;
     }
 
-    public SaucedemoIndex verifyProductNameIsCorrect() {
+    public SaucedemoIndex verifyProductNameIsCorrect() throws IOException {
         //Act
         String expectedProductName = getTestContext().getAttributeByName("Product_Name");
         String actualProductName = getText(cartProductName);
+        highlightElement(findElement(cartProductName));
 
         //Verify
         assertEqual("Product Name", expectedProductName, actualProductName);
         return this;
     }
 
-    public SaucedemoIndex verifyProductPriceIsCorrect() {
+    public SaucedemoIndex verifyProductPriceIsCorrect() throws IOException {
         //Act
         String expectedProductPrice = getTestContext().getAttributeByName("Product_Price");
         String actualProductPrice = getText(cartProductPrice);
+        highlightElement(findElement(cartProductPrice));
 
         //Verify
         assertEqual("Product Price", expectedProductPrice, actualProductPrice);
         return this;
     }
 
-    public SaucedemoIndex verifyProductQuantityIsCorrectWithValue(String expectedProductQuantity) {
+    public SaucedemoIndex verifyProductQuantityIsCorrectWithValue(String expectedProductQuantity) throws IOException {
         //Act
         String actualProductQuanity = getText(cartQuantity);
+        highlightElement(findElement(cartQuantity));
 
         //Verify
         assertEqual("Product Quantity", expectedProductQuantity, actualProductQuanity);
         return this;
     }
 
-    public SaucedemoIndex verifyCompleteMessageWithValue(String expectedCompleteMessage) {
+    public SaucedemoIndex verifyCompleteMessageWithValue(String expectedCompleteMessage) throws IOException {
         //Act
         String actualCompleteMessage = getText(completeMessageHeader);
+        highlightElement(findElement(completeMessageHeader));
 
         //Verify
         assertEqual("Complete Message", expectedCompleteMessage, actualCompleteMessage);
