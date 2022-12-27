@@ -5,19 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e511842-e28f-43d1-bb62-9ba2bcf53899" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/config/ConfigLoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/config.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/environment.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/nt/tshape/automation/selenium/report/HTMLTestReport.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/selenium/WebDriverCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/selenium/WebDriverCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/selenium/WebDriverManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/selenium/WebDriverManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/setup/WebDriverTestNGSetupBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/setup/WebDriverTestNGSetupBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/nt/tshape/automation/selenium/PageModal/AutomationPracticeIndexPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nt/tshape/automation/selenium/PageModal/AutomationPracticeIndexPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/nt/tshape/automation/selenium/PageModal/SaucedemoIndex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nt/tshape/automation/selenium/PageModal/SaucedemoIndex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/nt/tshape/automation/selenium/TestCase/Exercise1RegisterNewAccountTestCasesBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nt/tshape/automation/selenium/TestCase/Exercise1RegisterNewAccountTestCasesBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/nt/tshape/automation/selenium/TestCase/ExerciseBase2SearchProductTestCases.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nt/tshape/automation/selenium/TestCase/ExerciseBase2SearchProductTestCases.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +22,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="add_new_page_and_test_steps" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -124,9 +112,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.HTMLTestReport" />
-        <item itemvalue="TestNG.C:/Users/linhpham/Documents/Git_Repository/HTMLReport/testng.xml" />
         <item itemvalue="TestNG.Exercise1RegisterNewAccountTestCasesBase.RegisterNewAccount" />
+        <item itemvalue="TestNG.C:/Users/linhpham/Documents/Git_Repository/HTMLReport/testng.xml" />
+        <item itemvalue="Application.HTMLTestReport" />
+        <item itemvalue="TestNG.Exercise1RegisterNewAccountTestCasesBase.RegisterNewAccount" />
+        <item itemvalue="TestNG.C:/Users/linhpham/Documents/Git_Repository/HTMLReport/testng.xml" />
       </list>
     </recent_temporary>
   </component>
@@ -154,7 +144,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="add_html_report" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
