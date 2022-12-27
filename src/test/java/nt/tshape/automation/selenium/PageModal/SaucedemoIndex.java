@@ -1,5 +1,6 @@
 package nt.tshape.automation.selenium.PageModal;
 
+import nt.tshape.automation.config.ConfigLoader;
 import nt.tshape.automation.selenium.ActionManager;
 import nt.tshape.automation.selenium.TestContext;
 import org.openqa.selenium.WebDriver;
@@ -33,7 +34,7 @@ public class SaucedemoIndex extends ActionManager {
 
     //Function
     public SaucedemoIndex openPage() {
-        openUrl("https://www.saucedemo.com/inventory.html");
+        openUrl(ConfigLoader.getEnvironment("url"));
         return this;
     }
 

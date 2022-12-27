@@ -36,8 +36,8 @@ public class AutomationPracticeIndexPage extends ActionManager {
         super(driver, testContext);
     }
 
-    public AutomationPracticeIndexPage goToPageByURL(String locationURL) {
-        openUrl(locationURL);
+    public AutomationPracticeIndexPage openPage() {
+        openUrl("http://automationpractice.com/index.php");
         return this;
     }
 

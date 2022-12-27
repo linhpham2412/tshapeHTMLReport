@@ -35,6 +35,7 @@ public class WebDriverCreator {
             FirefoxOptions options = new FirefoxOptions().setBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe").setAcceptInsecureCerts(true);
             driver = new FirefoxDriver(options);
         }
+        System.out.println("Local driver and run on browser ["+ browser+"]");
         return driver;
     }
 
@@ -68,6 +69,7 @@ public class WebDriverCreator {
             System.setProperty("webdriver.gecko.driver", firefoxDriverLocation);
             driver = new RemoteWebDriver(options);
         }
+        System.out.println("Remote driver on ["+hubUrl+"] and run on browser ["+ browser+"]");
         return driver;
     }
 
@@ -84,6 +86,7 @@ public class WebDriverCreator {
         browserStackOptions.put("seleniumVersion", "3.141.59");
         capabilities.setCapability("bstack:options", browserStackOptions);
         driver = new RemoteWebDriver(new URL("https://" + username + ":" + accessKey + "@hub.browserstack.com/wd/hub"), capabilities);
+        System.out.println("BrowserStack driver and run on browser ["+ browser+"]");
         return driver;
     }
 }

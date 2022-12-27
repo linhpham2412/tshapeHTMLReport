@@ -12,6 +12,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/setup/WebDriverTestNGSetupBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/setup/WebDriverTestNGSetupBase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/nt/tshape/automation/selenium/PageModal/SaucedemoIndex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nt/tshape/automation/selenium/PageModal/SaucedemoIndex.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/nt/tshape/automation/selenium/TestCase/Buy1ProductFlowSwagLabs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nt/tshape/automation/selenium/TestCase/Buy1ProductFlowSwagLabs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +33,14 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="recentNewPullRequestHead">
+      <RepoCoordinatesHolder>
+        <option name="owner" value="linhpham2412" />
+        <option name="repository" value="tshapeHTMLReport" />
+      </RepoCoordinatesHolder>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -66,7 +75,20 @@
       <recent name="nt.tshape.automation.selenium.selenium.setup" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.C:/Users/linhpham/Documents/Git_Repository/HTMLReport/testng.xml">
+  <component name="RunManager" selected="Application.HTMLTestReport">
+    <configuration name="HTMLTestReport" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="nt.tshape.automation.selenium.report.HTMLTestReport" />
+      <module name="HTMLReport" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="nt.tshape.automation.selenium.report.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="C:/Users/linhpham/Documents/Git_Repository/HTMLReport/testng.xml" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="HTMLReport" />
       <option name="SUITE_NAME" value="$PROJECT_DIR$/testng.xml" />
@@ -97,8 +119,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.C:/Users/linhpham/Documents/Git_Repository/HTMLReport/testng.xml" />
         <item itemvalue="TestNG.Exercise1RegisterNewAccountTestCasesBase.RegisterNewAccount" />
+        <item itemvalue="TestNG.C:/Users/linhpham/Documents/Git_Repository/HTMLReport/testng.xml" />
+        <item itemvalue="Application.HTMLTestReport" />
+        <item itemvalue="TestNG.Exercise1RegisterNewAccountTestCasesBase.RegisterNewAccount" />
+        <item itemvalue="TestNG.C:/Users/linhpham/Documents/Git_Repository/HTMLReport/testng.xml" />
       </list>
     </recent_temporary>
   </component>
@@ -133,7 +158,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="add_html_report" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
