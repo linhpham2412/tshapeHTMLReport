@@ -9,7 +9,7 @@ import static nt.tshape.automation.selenium.Utils.generateRandomTestCharacters;
 
 public class Buy1ProductFlowSwagLabs extends WebDriverTestNGSetupBase {
 
-    @Test
+    @Test(alwaysRun = true)
     public void BuyProductE2EFlow() {
         SaucedemoIndex saucedemoIndex = new SaucedemoIndex(getDriver(), getTestContext());
         saucedemoIndex
@@ -20,7 +20,7 @@ public class Buy1ProductFlowSwagLabs extends WebDriverTestNGSetupBase {
                 .verifyPageTitleWithValue("PRODUCTS")
                 .clickOnItemInListByName("Sauce Labs Backpack")
                 .clickOnAddToCartButtonInProductPage()
-                .verifyBadgeDisplayWithNumber("1")
+                .verifyBadgeDisplayWithNumber("2")
                 .clickOnShoppingCartButton()
                 .verifyPageTitleWithValue("YOUR CART")
                 .verifyProductNameIsCorrect()
@@ -37,7 +37,7 @@ public class Buy1ProductFlowSwagLabs extends WebDriverTestNGSetupBase {
                 .verifyProductPriceIsCorrect()
                 .verifyProductQuantityIsCorrectWithValue("1")
                 .clickOnFinishButton()
-                .verifyPageTitleWithValue("CHECKOUT: COMPLETE!")
+                .verifyPageTitleWithValue("CHECKOUT: COMPLETE")
                 .verifyCompleteMessageWithValue("THANK YOU FOR YOUR ORDER")
                 .clickOnBackToProductButton()
                 .verifyPageTitleWithValue("PRODUCTS");
