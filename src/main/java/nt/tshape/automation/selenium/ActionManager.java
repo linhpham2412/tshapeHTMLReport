@@ -1,23 +1,29 @@
 package nt.tshape.automation.selenium;
 
+import nt.tshape.automation.reportmanager.HTMLReporter;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.Wait;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import static org.testng.Assert.assertEquals;
 
 public class ActionManager {
     private final WebDriver driver;
-    private final WebDriverWait wait;
+    private final Wait<WebDriver> wait;
     private final TestContext testContext;
 
     public ActionManager(WebDriver driver, TestContext testContext) {
         this.driver = driver;
-        wait = new WebDriverWait(driver, Constant.SHORT_TIME);
+        wait = new FluentWait<WebDriver>(driver)
+                .withTimeout(Constant.SHORT_TIME, TimeUnit.SECONDS)
+                .pollingEvery(Constant.SHORT_TIME, TimeUnit.SECONDS)
+                .ignoring(AssertionError.class);
         this.testContext = testContext;
     }
 
@@ -170,8 +176,15 @@ public class ActionManager {
         return new Select(findElement(elementDropDownField));
     }
 
-    public void assertEqual(String expected, String actual) {
+    public void assertEqual(String objectName, String expected, String actual) {
         System.out.println("Compare value [" + expected + "] is equal with: [" + actual + "]");
-        assertEquals(expected, actual, "Assertion failed because: [" + expected + "] is not equal with: [" + actual + "]");
+        try {
+            assertEquals(expected, actual);
+            HTMLReporter.getCurrentReportNode().pass("Assert object [" + objectName + "] passed because expected value: [" + expected + "] is equal with actual value: [" + actual + "]");
+            System.out.println("Assert object [" + objectName + "] passed because expected value: [" + expected + "] is equal with actual value: [" + actual + "]");
+        } catch (AssertionError e) {
+            HTMLReporter.getCurrentReportNode().fail("Assertion failed because object [" + objectName + "] has expected value: [" + expected + "] is not equal with actual value: [" + actual + "]");
+            System.out.println("Assertion failed because object [" + objectName + "] has expected value: [" + expected + "] is not equal with actual value: [" + actual + "]");
+        }
     }
 }

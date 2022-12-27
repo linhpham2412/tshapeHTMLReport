@@ -27,6 +27,7 @@ public class SaucedemoIndex extends ActionManager {
     private final String checkoutFinishButton = "id=finish";
     private final String backToProductButton = "id=back-to-products";
     private final String completeMessageHeader = "css=.complete-header";
+
     public SaucedemoIndex(WebDriver driver, TestContext testContext) {
         super(driver, testContext);
     }
@@ -123,7 +124,7 @@ public class SaucedemoIndex extends ActionManager {
         String actualNumberValue = getText(shoppingCartBadgeLocator);
 
         //Verify
-        assertEqual(expectedNumberValue, actualNumberValue);
+        assertEqual("Badge Number", expectedNumberValue, actualNumberValue);
         return this;
     }
 
@@ -132,7 +133,7 @@ public class SaucedemoIndex extends ActionManager {
         String actualPageTitle = getText(pageTitle);
 
         //Verify
-        assertEqual(expectedTitle, actualPageTitle);
+        assertEqual("Page Title", expectedTitle, actualPageTitle);
         return this;
     }
 
@@ -142,7 +143,7 @@ public class SaucedemoIndex extends ActionManager {
         String actualProductName = getText(cartProductName);
 
         //Verify
-        assertEqual(expectedProductName, actualProductName);
+        assertEqual("Product Name", expectedProductName, actualProductName);
         return this;
     }
 
@@ -152,7 +153,7 @@ public class SaucedemoIndex extends ActionManager {
         String actualProductPrice = getText(cartProductPrice);
 
         //Verify
-        assertEqual(expectedProductPrice, actualProductPrice);
+        assertEqual("Product Price", expectedProductPrice, actualProductPrice);
         return this;
     }
 
@@ -161,7 +162,7 @@ public class SaucedemoIndex extends ActionManager {
         String actualProductQuanity = getText(cartQuantity);
 
         //Verify
-        assertEqual(expectedProductQuantity, actualProductQuanity);
+        assertEqual("Product Quantity", expectedProductQuantity, actualProductQuanity);
         return this;
     }
 
@@ -170,7 +171,7 @@ public class SaucedemoIndex extends ActionManager {
         String actualCompleteMessage = getText(completeMessageHeader);
 
         //Verify
-        assertEqual(expectedCompleteMessage, actualCompleteMessage);
+        assertEqual("Complete Message", expectedCompleteMessage, actualCompleteMessage);
         return this;
     }
 }
