@@ -124,20 +124,22 @@ public class SaucedemoIndex extends ActionManager {
     public SaucedemoIndex verifyBadgeDisplayWithNumber(String expectedNumberValue) throws IOException {
         //Act
         String actualNumberValue = getText(shoppingCartBadgeLocator);
-        highlightElement(findElement(shoppingCartBadgeLocator));
+        elementHighlight(findElement(shoppingCartLinkLocator));
 
         //Verify
         assertEqual("Badge Number", expectedNumberValue, actualNumberValue);
+        elementRemoveHighLight(findElement(shoppingCartLinkLocator));
         return this;
     }
 
     public SaucedemoIndex verifyPageTitleWithValue(String expectedTitle) throws IOException {
         //Act
         String actualPageTitle = getText(pageTitle);
-        highlightElement(findElement(pageTitle));
+        elementHighlight(findElement(pageTitle));
 
         //Verify
         assertEqual("Page Title", expectedTitle, actualPageTitle);
+        elementRemoveHighLight(findElement(pageTitle));
         return this;
     }
 
@@ -145,10 +147,11 @@ public class SaucedemoIndex extends ActionManager {
         //Act
         String expectedProductName = getTestContext().getAttributeByName("Product_Name");
         String actualProductName = getText(cartProductName);
-        highlightElement(findElement(cartProductName));
+        elementHighlight(findElement(cartProductName));
 
         //Verify
         assertEqual("Product Name", expectedProductName, actualProductName);
+        elementRemoveHighLight(findElement(cartProductName));
         return this;
     }
 
@@ -156,30 +159,33 @@ public class SaucedemoIndex extends ActionManager {
         //Act
         String expectedProductPrice = getTestContext().getAttributeByName("Product_Price");
         String actualProductPrice = getText(cartProductPrice);
-        highlightElement(findElement(cartProductPrice));
+        elementHighlight(findElement(cartProductPrice));
 
         //Verify
         assertEqual("Product Price", expectedProductPrice, actualProductPrice);
+        elementRemoveHighLight(findElement(cartProductPrice));
         return this;
     }
 
     public SaucedemoIndex verifyProductQuantityIsCorrectWithValue(String expectedProductQuantity) throws IOException {
         //Act
         String actualProductQuanity = getText(cartQuantity);
-        highlightElement(findElement(cartQuantity));
+        elementHighlight(findElement(cartQuantity));
 
         //Verify
         assertEqual("Product Quantity", expectedProductQuantity, actualProductQuanity);
+        elementRemoveHighLight(findElement(cartQuantity));
         return this;
     }
 
     public SaucedemoIndex verifyCompleteMessageWithValue(String expectedCompleteMessage) throws IOException {
         //Act
         String actualCompleteMessage = getText(completeMessageHeader);
-        highlightElement(findElement(completeMessageHeader));
+        elementHighlight(findElement(completeMessageHeader));
 
         //Verify
         assertEqual("Complete Message", expectedCompleteMessage, actualCompleteMessage);
+        elementRemoveHighLight(findElement(completeMessageHeader));
         return this;
     }
 }
