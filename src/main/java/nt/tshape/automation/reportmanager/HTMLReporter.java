@@ -54,6 +54,7 @@ public class HTMLReporter {
 
     public void takesScreenshot(WebDriver driver, String fileName) throws IOException {
         String imageName = fileName + getReportCurrentDateTime();
+
         File captureLocation = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         File saveLocation = new File(getCaptureImageLocation() + imageName + ".png");
         Files.copy(captureLocation.toPath(), saveLocation.toPath());

@@ -8,7 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/reportmanager/HTMLReporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/reportmanager/HTMLReporter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/selenium/ActionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/selenium/ActionManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/setup/WebDriverTestNGSetupBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/setup/WebDriverTestNGSetupBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/nt/tshape/automation/selenium/PageModal/SaucedemoIndex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nt/tshape/automation/selenium/PageModal/SaucedemoIndex.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +154,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672146267100</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="create report folder for each run">
+      <created>1672227095466</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1672227095466</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -183,6 +190,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit master" />
     <MESSAGE value="update to add take screen shot for report" />
-    <option name="LAST_COMMIT_MESSAGE" value="update to add take screen shot for report" />
+    <MESSAGE value="create report folder for each run" />
+    <option name="LAST_COMMIT_MESSAGE" value="create report folder for each run" />
   </component>
 </project>

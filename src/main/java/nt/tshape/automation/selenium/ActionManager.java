@@ -9,7 +9,6 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import static org.testng.Assert.assertEquals;
@@ -32,18 +31,22 @@ public class ActionManager {
         return testContext;
     }
 
-    public WebElement highlightElement(WebElement elementToHighlight) {
-        JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
-        javascriptExecutor.executeScript("arguments[0].style.borders='2px solid red'", elementToHighlight);
-        return elementToHighlight;
+    public void elementHighlightAuto(WebElement element) {
+        for (int i = 0; i < 2; i++) {
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            js.executeScript("arguments[0].setAttribute('style', arguments[1]);", element, "color: yellow; border: 5px solid red;");
+            js.executeScript("arguments[0].setAttribute('style', arguments[1]);", element, "");
+        }
     }
 
-    public List<WebElement> highlightElement(List<WebElement> elementsToHighlight) {
-        for (WebElement webElement : elementsToHighlight) {
-            JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
-            javascriptExecutor.executeScript("arguments[0].style.borders='2px solid red'", webElement);
-        }
-        return elementsToHighlight;
+    public void elementHighlight(WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].setAttribute('style', arguments[1]);", element, "color: yellow; border: 5px solid red;");
+    }
+
+    public void elementRemoveHighLight(WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].setAttribute('style', arguments[1]);", element, "");
     }
 
     public WebElement findElement(String elementByTypeAndPath) {
