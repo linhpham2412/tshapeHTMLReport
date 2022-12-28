@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8e511842-e28f-43d1-bb62-9ba2bcf53899" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/reportmanager/HTMLReporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/reportmanager/HTMLReporter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/selenium/ActionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/selenium/ActionManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/nt/tshape/automation/selenium/PageModal/SaucedemoIndex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nt/tshape/automation/selenium/PageModal/SaucedemoIndex.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="update_take_screen_shot_with_highlight" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
