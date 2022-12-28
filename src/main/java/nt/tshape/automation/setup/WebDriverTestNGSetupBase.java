@@ -7,16 +7,14 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 
 import java.lang.reflect.Method;
-
 import java.net.MalformedURLException;
 
 public class WebDriverTestNGSetupBase {
-    private static HTMLReporter htmlReporter;
     private TestContext testContext;
 
     @AfterSuite
     public static void afterSuite() {
-        htmlReporter.getExtentReports().flush();
+        HTMLReporter.getHtmlReporter().getExtentReports().flush();
         WebDriverManager.getDriver().quit();
     }
 
@@ -33,16 +31,16 @@ public class WebDriverTestNGSetupBase {
     public void beforeSuiteSetUp(@Optional("chrome") String browser) throws MalformedURLException {
         WebDriverManager.iniDriver(browser);
         testContext = new TestContext();
-        htmlReporter = new HTMLReporter("newHTMLReport.html");
+        HTMLReporter.initHTMLReporter("HTML_TestingReport.html", "HTMLReport_Test_Output_On_");
     }
 
     @BeforeMethod
     public void beforeMethod(Method method) {
-        htmlReporter.createReportNode(method.getName(), method.toGenericString());
+        HTMLReporter.getHtmlReporter().createReportNode(method.getName(), method.toGenericString());
     }
 
     @BeforeTest
     public void beforeTest() {
-        htmlReporter.createReportClass(getClass().getName(), getClass().descriptorString());
+        HTMLReporter.getHtmlReporter().createReportClass(getClass().getName(), getClass().descriptorString());
     }
 }
