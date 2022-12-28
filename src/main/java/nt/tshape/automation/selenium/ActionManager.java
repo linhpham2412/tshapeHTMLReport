@@ -186,7 +186,7 @@ public class ActionManager {
         } catch (AssertionError e) {
             HTMLReporter.getCurrentReportNode().fail("Assertion failed because object [" + objectName + "] has expected value: [" + expected + "] is not equal with actual value: [" + actual + "]");
             System.out.println("Assertion failed because object [" + objectName + "] has expected value: [" + expected + "] is not equal with actual value: [" + actual + "]");
-            HTMLReporter.takesScreenshot(driver, "CaptureImageOnFailedCase_");
+            HTMLReporter.getHtmlReporter().takesScreenshot(driver, "CaptureImageOnFailedCase_");
         }
     }
 }
