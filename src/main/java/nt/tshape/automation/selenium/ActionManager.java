@@ -80,6 +80,7 @@ public class ActionManager {
     public void sendKeys(String elementToSendKey, CharSequence keysToSend) {
         try {
             WebElement workingElement = findElement(elementToSendKey);
+            elementHighlightAuto(workingElement);
             workingElement.sendKeys(keysToSend);
             System.out.println("Sent [" + keysToSend + "] into element [" + elementToSendKey + "]");
         } catch (StaleElementReferenceException staleElementReferenceException) {
@@ -93,6 +94,7 @@ public class ActionManager {
     public void clearText(String elementToClearText) {
         try {
             WebElement workingElement = findElement(elementToClearText);
+            elementHighlightAuto(workingElement);
             workingElement.clear();
             System.out.println("Cleared text in element [" + elementToClearText + "]");
         } catch (StaleElementReferenceException staleElementReferenceException) {
@@ -106,6 +108,7 @@ public class ActionManager {
     public String getText(String elementToGetText) {
         try {
             WebElement workingElement = findElement(elementToGetText);
+            elementHighlightAuto(workingElement);
             String resultText = workingElement.getTagName().equalsIgnoreCase("input") ? workingElement.getAttribute("value") : workingElement.getText();
             System.out.println("Got text [" + resultText + "] from element [" + elementToGetText + "]");
             return resultText;
@@ -119,6 +122,7 @@ public class ActionManager {
 
     public void click(String elementToClick) {
         try {
+            elementHighlightAuto(findElement(elementToClick));
             findElement(elementToClick).click();
             System.out.println("Clicked on the element [" + elementToClick + "]");
         } catch (StaleElementReferenceException staleElementReferenceException) {
@@ -149,6 +153,7 @@ public class ActionManager {
 
     public void mouseMoveToElementAndClick(String elementMovingToAndClick) {
         try {
+            elementHighlightAuto(findElement(elementMovingToAndClick));
             Actions actions = new Actions(driver);
             actions.moveToElement(findElement(elementMovingToAndClick));
             actions.click().build().perform();
@@ -164,6 +169,7 @@ public class ActionManager {
 
     public void selectDropDownFieldWithValue(String elementDropDownField, String fieldValue) {
         try {
+            elementHighlightAuto(findElement(elementDropDownField));
             Select workingDropDownField = new Select(findElement(elementDropDownField));
             workingDropDownField.selectByValue(fieldValue);
             System.out.println("Opened drop down field [" + elementDropDownField + "] and select value [" + fieldValue + "]");
