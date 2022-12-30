@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="8e511842-e28f-43d1-bb62-9ba2bcf53899" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/reportmanager/HTMLReporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/reportmanager/HTMLReporter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/selenium/ActionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/selenium/ActionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/nt/tshape/automation/selenium/PageModal/AutomationPracticeIndexPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nt/tshape/automation/selenium/PageModal/AutomationPracticeIndexPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +56,10 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/linhpham/Documents/Git_Repository/HTMLReport/src/test/java/nt/tshape/automation/selenium&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/linhpham/Documents/Tshape_Training/tshape_linhpham_1326_HTMLReport.zip&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
   }
 }</component>
@@ -73,7 +79,7 @@
   <component name="RunManager" selected="TestNG.C:/Users/linhpham/Documents/Git_Repository/HTMLReport/testng.xml">
     <configuration name="HTMLTestReport" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="nt.tshape.automation.selenium.report.HTMLTestReport" />
-      <module name="HTMLReport" />
+      <module name="tshape_linhpham_1326_HTMLReport" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="nt.tshape.automation.selenium.report.*" />
@@ -85,7 +91,7 @@
       </method>
     </configuration>
     <configuration name="C:/Users/linhpham/Documents/Git_Repository/HTMLReport/testng.xml" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="HTMLReport" />
+      <module name="tshape_linhpham_1326_HTMLReport" />
       <option name="SUITE_NAME" value="$PROJECT_DIR$/testng.xml" />
       <option name="TEST_OBJECT" value="SUITE" />
       <properties />
@@ -95,7 +101,7 @@
       </method>
     </configuration>
     <configuration name="Exercise1RegisterNewAccountTestCasesBase.RegisterNewAccount" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="HTMLReport" />
+      <module name="tshape_linhpham_1326_HTMLReport" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="nt.tshape.automation.selenium.TestCase.*" />
@@ -159,7 +165,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672227095466</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="update auto highlight to action steps">
+      <created>1672229704820</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1672229704820</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -189,6 +202,7 @@
     <MESSAGE value="commit master" />
     <MESSAGE value="update to add take screen shot for report" />
     <MESSAGE value="create report folder for each run" />
-    <option name="LAST_COMMIT_MESSAGE" value="create report folder for each run" />
+    <MESSAGE value="update auto highlight to action steps" />
+    <option name="LAST_COMMIT_MESSAGE" value="update auto highlight to action steps" />
   </component>
 </project>
