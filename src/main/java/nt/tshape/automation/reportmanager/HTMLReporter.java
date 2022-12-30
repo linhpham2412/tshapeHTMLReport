@@ -52,14 +52,15 @@ public class HTMLReporter {
         return getCurrentRunningReportLocation() + reportOutPutFolderName + "\\CapturedImage\\";
     }
 
-    public void takesScreenshot(WebDriver driver, String fileName) throws IOException {
-        String imageName = fileName + getReportCurrentDateTime();
+    public String takesScreenshot(WebDriver driver, String fileName) throws IOException {
+        String imageName = fileName.replaceAll("[^a-zA-Z0-9]+", "");
+        imageName = imageName + "_" + getReportCurrentDateTime();
 
         File captureLocation = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         File saveLocation = new File(getCaptureImageLocation() + imageName + ".png");
         Files.copy(captureLocation.toPath(), saveLocation.toPath());
 
-        currentReportNode.addScreenCaptureFromPath(getCaptureImageLocation() + imageName + ".png");
+        return saveLocation.getAbsolutePath();
     }
 
     public ExtentReports getExtentReports() {

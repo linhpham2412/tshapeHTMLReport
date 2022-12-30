@@ -2,11 +2,9 @@ package nt.tshape.automation.selenium.PageModal;
 
 import nt.tshape.automation.selenium.ActionManager;
 import nt.tshape.automation.selenium.Constant;
-import nt.tshape.automation.selenium.Customer_Information;
 import nt.tshape.automation.selenium.TestContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.util.List;
@@ -28,7 +26,6 @@ public class AutomationPracticeIndexPage extends ActionManager {
     private final String productXPathLocatorByIndex = "xpath=//ul[contains (@class,'product_list')]//li[contains (@class,'ajax_block_product')][%s]";
     private final String productDetailXPathLocatorByClassName = "//div[@class='right-block']//*[@class='%s']";
     private final String searchTextField = "id=search_query_top";
-
 
 
     //constructor
@@ -55,14 +52,14 @@ public class AutomationPracticeIndexPage extends ActionManager {
 
     public AutomationPracticeIndexPage inputToEmailAddressWithEmail(String emailAddress) {
         waitForElementVisible(emailCreateTextBox);
-        sendKeys(emailCreateTextBox,emailAddress);
+        sendKeys(emailCreateTextBox, emailAddress);
         getTestContext().getCustomerInformation().saveDataByFieldName("Email", emailAddress);
         return this;
     }
 
     public AutomationPracticeIndexPage selectDropDownFieldByIdWithValue(String fieldId, String fieldValue) {
         waitForElementClickable(String.format(dobDropDownFieldLocatorByXPathIdName, fieldId));
-        selectDropDownFieldWithValue(String.format(dobDropDownFieldLocatorByXPathIdName, fieldId) + postFixSelect,fieldValue);
+        selectDropDownFieldWithValue(String.format(dobDropDownFieldLocatorByXPathIdName, fieldId) + postFixSelect, fieldValue);
         getTestContext().getCustomerInformation().saveDataByFieldName(fieldId, fieldValue);
         List<WebElement> options = getDropDownOptionsList(String.format(dobDropDownFieldLocatorByXPathIdName, fieldId) + postFixSelect).getOptions();
         if (fieldId.equals(Constant.ADDRESS_STATE_ID)) {
@@ -83,7 +80,7 @@ public class AutomationPracticeIndexPage extends ActionManager {
     }
 
     public AutomationPracticeIndexPage inputPersonalInformationFieldNameWithValue(String fieldName, String fieldValue) {
-        sendKeys(String.format(personalInfoTextFieldLocatorByName, fieldName),fieldValue);
+        sendKeys(String.format(personalInfoTextFieldLocatorByName, fieldName), fieldValue);
         getTestContext().getCustomerInformation().saveDataByFieldName(fieldName, fieldValue);
         return this;
     }
@@ -96,13 +93,13 @@ public class AutomationPracticeIndexPage extends ActionManager {
 
     public AutomationPracticeIndexPage inputYourAddressTextFieldNameWithValue(String fieldName, String fieldValue) {
         clearText(String.format(yourAddressTextFieldLocatorByName, fieldName));
-        sendKeys(String.format(yourAddressTextFieldLocatorByName, fieldName),fieldValue);
+        sendKeys(String.format(yourAddressTextFieldLocatorByName, fieldName), fieldValue);
         getTestContext().getCustomerInformation().saveDataByFieldName(fieldName, fieldValue);
         return this;
     }
 
     public AutomationPracticeIndexPage inputAdditionalTextareaWithText(String fieldText) {
-        sendKeys(additionalInformationTextareaXPathLocator,fieldText);
+        sendKeys(additionalInformationTextareaXPathLocator, fieldText);
         getTestContext().getCustomerInformation().saveAdditionalInformationTextAreaByValue(fieldText);
         return this;
     }
@@ -110,7 +107,7 @@ public class AutomationPracticeIndexPage extends ActionManager {
     public AutomationPracticeIndexPage moveToMenuWithNameAndClickOnButtonByFieldName(String menuName, String subMenuFieldName) {
         waitForElementVisible(String.format(linkMenuListXPathLocatorByName, menuName));
         mouseMoveToElementAndClick(String.format(linkMenuListXPathLocatorByName, menuName));
-        mouseMoveToElementAndClick(String.format(linkMenuListXPathLocatorByName, menuName) + String.format(linkSubMenuToMergeWithMenuXPathLocatorByName, subMenuFieldName));;
+        mouseMoveToElementAndClick(String.format(linkMenuListXPathLocatorByName, menuName) + String.format(linkSubMenuToMergeWithMenuXPathLocatorByName, subMenuFieldName));
         return this;
     }
 
@@ -127,7 +124,7 @@ public class AutomationPracticeIndexPage extends ActionManager {
     }
 
     public AutomationPracticeIndexPage inputSearchTextIntoSearchField(String searchText) {
-        sendKeys(searchTextField,searchText);
+        sendKeys(searchTextField, searchText);
         return this;
     }
 

@@ -1,5 +1,6 @@
 package nt.tshape.automation.selenium;
 
+import lombok.SneakyThrows;
 import nt.tshape.automation.reportmanager.HTMLReporter;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -77,30 +78,39 @@ public class ActionManager {
         return workingElement;
     }
 
+    @SneakyThrows
     public void sendKeys(String elementToSendKey, CharSequence keysToSend) {
+        String passMessage = "Sent [" + keysToSend + "] into element [" + elementToSendKey + "]";
+        String failMessage = "Cannot send [" + keysToSend + "] into element [" + elementToSendKey + "]";
         try {
             WebElement workingElement = findElement(elementToSendKey);
             elementHighlightAuto(workingElement);
             workingElement.sendKeys(keysToSend);
-            System.out.println("Sent [" + keysToSend + "] into element [" + elementToSendKey + "]");
+            System.out.println(passMessage);
+            HTMLReporter.getCurrentReportNode().pass(passMessage);
         } catch (StaleElementReferenceException staleElementReferenceException) {
             sendKeys(elementToSendKey, keysToSend);
         } catch (Exception e) {
-            System.out.println("Cannot send [" + keysToSend + "] into element [" + elementToSendKey + "]");
+            System.out.println(failMessage);
+            HTMLReporter.getCurrentReportNode()
+                    .fail(failMessage)
+                    .addScreenCaptureFromPath(HTMLReporter.getHtmlReporter().takesScreenshot(driver, failMessage));
             throw e;
         }
     }
 
     public void clearText(String elementToClearText) {
+        String passMessage = "Cleared text in element [" + elementToClearText + "]";
+        String failMessage = "Cannot clear text of element [" + elementToClearText + "]";
         try {
             WebElement workingElement = findElement(elementToClearText);
             elementHighlightAuto(workingElement);
             workingElement.clear();
-            System.out.println("Cleared text in element [" + elementToClearText + "]");
+            System.out.println(passMessage);
         } catch (StaleElementReferenceException staleElementReferenceException) {
             clearText(elementToClearText);
         } catch (Exception e) {
-            System.out.println("Cannot clear text of element [" + elementToClearText + "]");
+            System.out.println(failMessage);
             throw e;
         }
     }
@@ -120,25 +130,39 @@ public class ActionManager {
         }
     }
 
+    @SneakyThrows
     public void click(String elementToClick) {
+        String passMessage = "Clicked on the element [" + elementToClick + "]";
+        String failMessage = "Cannot click on element [" + elementToClick + "]";
         try {
             elementHighlightAuto(findElement(elementToClick));
             findElement(elementToClick).click();
-            System.out.println("Clicked on the element [" + elementToClick + "]");
+            HTMLReporter.getCurrentReportNode().pass(passMessage);
+            System.out.println(passMessage);
         } catch (StaleElementReferenceException staleElementReferenceException) {
             click(elementToClick);
         } catch (Exception e) {
-            System.out.println("Cannot click on element [" + elementToClick + "]");
+            HTMLReporter.getCurrentReportNode()
+                    .fail(failMessage)
+                    .addScreenCaptureFromPath(HTMLReporter.getHtmlReporter().takesScreenshot(driver, failMessage));
+            System.out.println(failMessage);
             throw e;
         }
     }
 
+    @SneakyThrows
     public void openUrl(String urlToBeOpen) {
+        String passMessage = "Browser opened page with url [" + urlToBeOpen + "] successfully!";
+        String failMessage = "Browser cannot opened page with url [" + urlToBeOpen + "]";
         try {
             driver.get(urlToBeOpen);
-            System.out.println("Browser opened page with url [" + urlToBeOpen + "] successfully!");
+            HTMLReporter.getCurrentReportNode().pass(passMessage);
+            System.out.println(passMessage);
         } catch (Exception e) {
-            System.out.println("Browser cannot opened page with url [" + urlToBeOpen + "]");
+            HTMLReporter.getCurrentReportNode()
+                    .fail(failMessage)
+                    .addScreenCaptureFromPath(HTMLReporter.getHtmlReporter().takesScreenshot(driver, failMessage));
+            System.out.println(failMessage);
             throw e;
         }
     }
@@ -151,33 +175,45 @@ public class ActionManager {
         wait.until(ExpectedConditions.elementToBeClickable(findElement(elementToBeWait)));
     }
 
+    @SneakyThrows
     public void mouseMoveToElementAndClick(String elementMovingToAndClick) {
+        String passMessage = "Moved and clicked on element [" + elementMovingToAndClick + "]";
+        String failMessage = "Cannot move and click on element [" + elementMovingToAndClick + "]";
         try {
             elementHighlightAuto(findElement(elementMovingToAndClick));
             Actions actions = new Actions(driver);
             actions.moveToElement(findElement(elementMovingToAndClick));
             actions.click().build().perform();
-            System.out.println("Moved and clicked on element [" + elementMovingToAndClick + "]");
+            HTMLReporter.getCurrentReportNode().pass(passMessage);
+            System.out.println(passMessage);
         } catch (StaleElementReferenceException staleElementReferenceException) {
             mouseMoveToElementAndClick(elementMovingToAndClick);
-            System.out.println("Moved and clicked on element [" + elementMovingToAndClick + "]");
         } catch (Exception e) {
-            System.out.println("Cannot move and click on element [" + elementMovingToAndClick + "]");
+            HTMLReporter.getCurrentReportNode()
+                    .fail(failMessage)
+                    .addScreenCaptureFromPath(HTMLReporter.getHtmlReporter().takesScreenshot(driver, failMessage));
+            System.out.println(failMessage);
             throw e;
         }
     }
 
+    @SneakyThrows
     public void selectDropDownFieldWithValue(String elementDropDownField, String fieldValue) {
+        String passMessage = "Opened drop down field [" + elementDropDownField + "] and select value [" + fieldValue + "]";
+        String failMessage = "Can not open drop down field [" + elementDropDownField + "] and select value [" + fieldValue + "]";
         try {
             elementHighlightAuto(findElement(elementDropDownField));
             Select workingDropDownField = new Select(findElement(elementDropDownField));
             workingDropDownField.selectByValue(fieldValue);
-            System.out.println("Opened drop down field [" + elementDropDownField + "] and select value [" + fieldValue + "]");
+            HTMLReporter.getCurrentReportNode().pass(passMessage);
+            System.out.println(passMessage);
         } catch (StaleElementReferenceException staleElementReferenceException) {
             selectDropDownFieldWithValue(elementDropDownField, fieldValue);
-            System.out.println("Opened drop down field [" + elementDropDownField + "] and select value [" + fieldValue + "]");
         } catch (Exception e) {
-            System.out.println("Can not opene drop down field [" + elementDropDownField + "] and select value [" + fieldValue + "]");
+            HTMLReporter.getCurrentReportNode()
+                    .fail(failMessage)
+                    .addScreenCaptureFromPath(HTMLReporter.getHtmlReporter().takesScreenshot(driver, failMessage));
+            System.out.println(failMessage);
             throw e;
         }
     }
@@ -187,15 +223,18 @@ public class ActionManager {
     }
 
     public void assertEqual(String objectName, String expected, String actual) throws IOException {
+        String passMessage = "Assert object [" + objectName + "] passed because expected value: [" + expected + "] is equal with actual value: [" + actual + "]";
+        String failMessage = "Assertion failed [" + objectName + "] expected: [" + expected + "] not equal actual: [" + actual + "]";
         System.out.println("Compare value [" + expected + "] is equal with: [" + actual + "]");
         try {
             assertEquals(expected, actual);
-            HTMLReporter.getCurrentReportNode().pass("Assert object [" + objectName + "] passed because expected value: [" + expected + "] is equal with actual value: [" + actual + "]");
-            System.out.println("Assert object [" + objectName + "] passed because expected value: [" + expected + "] is equal with actual value: [" + actual + "]");
+            HTMLReporter.getCurrentReportNode().pass(passMessage);
+            System.out.println(passMessage);
         } catch (AssertionError e) {
-            HTMLReporter.getCurrentReportNode().fail("Assertion failed because object [" + objectName + "] has expected value: [" + expected + "] is not equal with actual value: [" + actual + "]");
-            System.out.println("Assertion failed because object [" + objectName + "] has expected value: [" + expected + "] is not equal with actual value: [" + actual + "]");
-            HTMLReporter.getHtmlReporter().takesScreenshot(driver, "CaptureImageOnFailedCase_");
+            HTMLReporter.getCurrentReportNode()
+                    .fail(failMessage)
+                    .addScreenCaptureFromPath(HTMLReporter.getHtmlReporter().takesScreenshot(driver, failMessage));
+            System.out.println(failMessage);
         }
     }
 }
