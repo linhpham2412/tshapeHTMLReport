@@ -30,7 +30,7 @@ public class ConfigLoader {
             environmentConfiguration = environmentConfiguration.getJSONObject(environment);
         }
 
-        System.out.println("Loaded [" + environment + "] environment with url: [" + environmentConfiguration.getString("url") + "]");
+        System.out.println("Loaded [" + environment + "] environment with url: [" + environmentConfiguration.getString("url") + "] and apiHost: ["+environmentConfiguration.getString("apiHost")+"]");
     }
 
     public static String getEnvironment(String key){

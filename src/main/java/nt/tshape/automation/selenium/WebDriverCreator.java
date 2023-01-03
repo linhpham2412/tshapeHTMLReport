@@ -15,13 +15,12 @@ import java.util.HashMap;
 
 public class WebDriverCreator {
 
-    private static final String chromeDriverLocation = "C:\\Users\\linhpham\\Documents\\Tshape_Training\\Webdriver\\chromedriver.exe";
-    private static final String firefoxDriverLocation = "C:\\Users\\linhpham\\Documents\\Tshape_Training\\Webdriver\\geckodriver.exe";
+    private static final String webDriverLocation = "C:\\Users\\Admin\\OneDrive\\Documents\\LinhPham\\TShapeTraining\\Webdriver\\";
 
     public static WebDriver createLocalDriver(String browser) {
         WebDriver driver = null;
         if (browser.equalsIgnoreCase("chrome")) {
-            System.setProperty("webdriver.chrome.driver", chromeDriverLocation);
+            System.setProperty("webdriver.chrome.driver", webDriverLocation + "chromedriver.exe");
             ChromeOptions options = new ChromeOptions();
             options.addArguments("start-maximized"); // open Browser in maximized mode
             options.addArguments("disable-infobars"); // disabling infobars
@@ -31,11 +30,11 @@ public class WebDriverCreator {
             options.addArguments("--no-sandbox"); // Bypass OS security model
             driver = new ChromeDriver(options);
         } else if (browser.equalsIgnoreCase("firefox")) {
-            System.setProperty("webdriver.gecko.driver", firefoxDriverLocation);
+            System.setProperty("webdriver.gecko.driver", webDriverLocation + "geckodriver.exe");
             FirefoxOptions options = new FirefoxOptions().setBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe").setAcceptInsecureCerts(true);
             driver = new FirefoxDriver(options);
         }
-        System.out.println("Local driver and run on browser ["+ browser+"]");
+        System.out.println("Local driver and run on browser [" + browser + "]");
         return driver;
     }
 
@@ -55,7 +54,7 @@ public class WebDriverCreator {
             capabilities.setPlatform(Platform.WINDOWS);
             capabilities.setCapability(ChromeOptions.CAPABILITY, options);
             driver = new RemoteWebDriver(capabilities);
-            System.setProperty("webdriver.chrome.driver", chromeDriverLocation);
+            System.setProperty("webdriver.chrome.driver", webDriverLocation + "chromedriver.exe");
             driver = new RemoteWebDriver(options);
         }
         if (browser.equalsIgnoreCase("firefox")) {
@@ -66,10 +65,10 @@ public class WebDriverCreator {
             capabilities.setPlatform(Platform.WINDOWS);
             capabilities.setCapability(FirefoxOptions.FIREFOX_OPTIONS, options);
             driver = new RemoteWebDriver(capabilities);
-            System.setProperty("webdriver.gecko.driver", firefoxDriverLocation);
+            System.setProperty("webdriver.gecko.driver", webDriverLocation + "geckodriver.exe");
             driver = new RemoteWebDriver(options);
         }
-        System.out.println("Remote driver on ["+hubUrl+"] and run on browser ["+ browser+"]");
+        System.out.println("Remote driver on [" + hubUrl + "] and run on browser [" + browser + "]");
         return driver;
     }
 
@@ -86,7 +85,7 @@ public class WebDriverCreator {
         browserStackOptions.put("seleniumVersion", "3.141.59");
         capabilities.setCapability("bstack:options", browserStackOptions);
         driver = new RemoteWebDriver(new URL("https://" + username + ":" + accessKey + "@hub.browserstack.com/wd/hub"), capabilities);
-        System.out.println("BrowserStack driver and run on browser ["+ browser+"]");
+        System.out.println("BrowserStack driver and run on browser [" + browser + "]");
         return driver;
     }
 }

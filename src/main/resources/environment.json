@@ -1,9 +1,11 @@
 {
   "environment": "dev",
   "dev": {
-    "url": "https://www.saucedemo.com/inventory.html"
+    "url": "https://www.saucedemo.com/inventory.html",
+    "apiHost": "https://reqres.in/"
   },
   "test": {
-    "url": "http://automationpractice.com/index.php"
+    "url": "http://automationpractice.com/index.php",
+    "apiHost": "https://reqres.in/"
   }
 }

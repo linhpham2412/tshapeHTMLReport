@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/Admin/git_repository/tshapeHTMLReport/src/test/java/nt/tshape/automation/selenium/TestCase/ReqresInAutomationAPITestingFlow.java">
+        <classes>
+            <class name="nt.tshape.automation.selenium.TestCase.ReqresInAutomationAPITestingFlow">
+                <methods>
+                    <include name="RegresInAutomationUsersAPIFlow"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+<!--    <test verbose="2" preserve-order="true"-->
+<!--          name="C:/Users/Admin/git_repository/tshapeHTMLReport/src/test/java/nt/tshape/automation/selenium/TestCase/Buy1ProductFlowSwagLabs.java">-->
+<!--        <classes>-->
+<!--            <class name="nt.tshape.automation.selenium.TestCase.Buy1ProductFlowSwagLabs">-->
+<!--                <methods>-->
+<!--                    <include name="BuyProductE2EFlow"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
+</suite>
