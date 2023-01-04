@@ -15,8 +15,8 @@ public class ConfigLoader {
         }
     }
     private static void readConfiguration() {
-        InputStream inputStreamEnvironment = ConfigLoader.class.getResourceAsStream("/environment.json");
-        InputStream inputStreamConfig = ConfigLoader.class.getResourceAsStream("/config.json");
+        InputStream inputStreamEnvironment = ConfigLoader.class.getResourceAsStream("/Configuration/environment.json");
+        InputStream inputStreamConfig = ConfigLoader.class.getResourceAsStream("/Configuration/config.json");
 
         environmentConfiguration = new JSONObject(new JSONTokener(inputStreamEnvironment));
         frameworkConfiguration = new JSONObject(new JSONTokener(inputStreamConfig));
