@@ -5,17 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e511842-e28f-43d1-bb62-9ba2bcf53899" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/apimanager/BaseEndpoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/nt/tshape/automation/selenium/Endpoint/UserEndpoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/nt/tshape/automation/selenium/TestCase/ReqresInAutomationAPITestingFlow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testng.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/RequestJSON/createUsersJSON.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/nt/tshape/automation/selenium/DataModel/UsersDataModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/apimanager/BaseEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/apimanager/BaseEndpoint.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/config/ConfigLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/config/ConfigLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/selenium/WebDriverCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/selenium/WebDriverCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/setup/WebDriverTestNGSetupBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/setup/WebDriverTestNGSetupBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/environment.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/environment.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/selenium/Constant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/selenium/Constant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Configuration/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/environment.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Configuration/environment.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/nt/tshape/automation/selenium/Endpoint/UserEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nt/tshape/automation/selenium/Endpoint/UserEndpoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/nt/tshape/automation/selenium/TestCase/ReqresInAutomationAPITestingFlow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nt/tshape/automation/selenium/TestCase/ReqresInAutomationAPITestingFlow.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +63,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "dart.analysis.tool.window.visible": "false",
-    "last_opened_file_path": "C:/Users/linhpham/Documents/Git_Repository/HTMLReport/src/test/java/nt/tshape/automation/selenium",
+    "last_opened_file_path": "C:/Users/linhpham/Documents/Git_Repository/HTMLReport/src/main/resources/Configuration",
     "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
   }
 }]]></component>
@@ -72,6 +72,9 @@
       <recent name="C:\Users\linhpham\Documents\Git_Repository\HTMLReport\src\test\java\nt\tshape\automation\selenium" />
       <recent name="C:\Users\linhpham\Documents\Git_Repository\HTMLReport\src\test\java" />
       <recent name="C:\Users\linhpham\Documents\Git_Repository\HTMLReport\src\main\java\nt\tshape\automation\selenium" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\linhpham\Documents\Git_Repository\HTMLReport\src\main\resources\Configuration" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="nt.tshape.automation.selenium" />
@@ -165,10 +168,14 @@
     <option name="LAST_COMMIT_MESSAGE" value="commit master" />
   </component>
   <component name="XDebuggerManager">
-    <watches-manager>
-      <configuration name="TestNG">
-        <watch expression="((Response)((UserEndpoint)this).response).body" custom="okhttp3.Response,nt.tshape.automation.selenium.Endpoint.UserEndpoint" />
-      </configuration>
-    </watches-manager>
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/nt/tshape/automation/apimanager/BaseEndpoint.java</url>
+          <line>138</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

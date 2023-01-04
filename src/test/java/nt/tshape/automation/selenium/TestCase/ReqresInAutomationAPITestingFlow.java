@@ -9,12 +9,21 @@ public class ReqresInAutomationAPITestingFlow {
     @Test
     public void RegresInAutomationUsersAPIFlow(){
         userEndpoint
+                .addCustomHeader("X-Requested-With", "XMLHttpRequest")
                 .addQueryParamNameWithValue("page","2")
                 .callGETRequest()
                 .verifyUserEndpointResponseCodeEqual(200)
                 .addPathParamWithValue("2")
                 .callGETRequest()
-                .verifyUserEndpointResponseCodeEqual(200);
-
+                .verifyUserEndpointResponseCodeEqual(200)
+                .addRequestBody()
+                .changeUserNameTo("morpheus1")
+                .changeUserJobTo("leader1")
+                .callPostRequestWithBody()
+                .verifyUserEndpointResponseCodeEqual(201)
+                .verifyResponseUserFieldWithValue("name","morpheus1")
+                .verifyResponseUserFieldWithValue("job","leader1")
+                .verifyResponseUserFieldExist("id")
+                .verifyResponseUserFieldExist("createdAt");
     }
 }
