@@ -7,7 +7,6 @@ import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.Markup;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-import org.json.JSONObject;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -105,11 +104,18 @@ public class HTMLReporter {
         }
     }
 
-    public Markup markupTextWithColor(String text, ExtentColor color){
+    public Markup markupTextWithColor(String text, ExtentColor color) {
         return MarkupHelper.createLabel(text, color);
     }
 
-    public Markup markupJSONCodeBlock(String jsonObject){
+    public Markup markupJSONCodeBlock(String jsonObject) {
         return MarkupHelper.createCodeBlock(jsonObject, CodeLanguage.JSON);
+    }
+
+    public Markup markupRequestInfoTable(String requestType, String requestURL, String responseCode) {
+        String[][] tableData = new String[2][3];
+        tableData[0] = new String[]{"Request Type", "Request URL", "Response Code"};
+        tableData[1] = new String[]{requestType, requestURL, responseCode};
+        return MarkupHelper.createTable(tableData);
     }
 }
