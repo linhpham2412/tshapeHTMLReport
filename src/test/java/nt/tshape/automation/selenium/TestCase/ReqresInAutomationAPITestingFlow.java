@@ -1,9 +1,10 @@
 package nt.tshape.automation.selenium.TestCase;
 
 import nt.tshape.automation.selenium.Endpoint.UserEndpoint;
+import nt.tshape.automation.setup.WebDriverTestNGSetupBase;
 import org.testng.annotations.Test;
 
-public class ReqresInAutomationAPITestingFlow {
+public class ReqresInAutomationAPITestingFlow extends WebDriverTestNGSetupBase {
     private final UserEndpoint userEndpoint = new UserEndpoint();
 
     @Test
