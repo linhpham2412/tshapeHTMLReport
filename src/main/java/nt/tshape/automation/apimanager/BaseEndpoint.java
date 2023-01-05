@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import lombok.SneakyThrows;
 import nt.tshape.automation.config.ConfigLoader;
-import nt.tshape.automation.reportmanager.HTMLReporter;
 import nt.tshape.automation.selenium.Constant;
 import okhttp3.*;
 import org.json.JSONException;
@@ -18,6 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import static nt.tshape.automation.reportmanager.HTMLReporter.getCurrentReportNode;
 import static nt.tshape.automation.reportmanager.HTMLReporter.getHtmlReporter;
 
 public class BaseEndpoint {
@@ -65,7 +65,7 @@ public class BaseEndpoint {
                 .addAll(currentHeader)
                 .build();
         System.out.println("Added new header [" + headerName + "] with value [" + headerValue + "] to [" + objectClass.getSimpleName() + "]");
-        HTMLReporter.getCurrentReportNode()
+        getCurrentReportNode()
                 .pass("Added new header [" + headerName + "] with value [" + headerValue + "] to [" + objectClass.getSimpleName() + "]");
     }
 
@@ -80,14 +80,14 @@ public class BaseEndpoint {
     protected <T> void addQueryParametersNameWithValue(String paramName, String paramValue, Class<T> objectClass) {
         parameters.put(paramName, paramValue);
         System.out.println("Added new Query Parameter [" + paramName + "] with value [" + paramValue + "] to [" + objectClass.getSimpleName() + "]");
-        HTMLReporter.getCurrentReportNode()
+        getCurrentReportNode()
                 .pass("Added new Query Parameter [" + paramName + "] with value [" + paramValue + "] to [" + objectClass.getSimpleName() + "]");
     }
 
     protected <T> void addPathParameterWithValue(String paramValue, Class<T> objectClass) {
         paramPathSegment.add(paramValue);
         System.out.println("Added new Path Parameter with value [" + paramValue + "] to [" + objectClass.getSimpleName() + "]");
-        HTMLReporter.getCurrentReportNode()
+        getCurrentReportNode()
                 .pass("Added new Path Parameter with value [" + paramValue + "] to [" + objectClass.getSimpleName() + "]");
     }
 
@@ -95,14 +95,14 @@ public class BaseEndpoint {
     protected <T> void createRequestBody(String jsonBody, Class<T> objectClass) {
         requestJSON = convertStringToJSONObject(jsonBody);
         System.out.println("Added new body [" + jsonBody + "] to [" + objectClass.getSimpleName() + "]");
-        HTMLReporter.getCurrentReportNode()
+        getCurrentReportNode()
                 .pass("Added new body [" + jsonBody + "] to [" + objectClass.getSimpleName() + "]");
     }
 
     protected <T> void updateRequestFieldWithValue(String fieldName, String fieldValue, Class<T> objectClass) {
         requestJSON.put(fieldName, fieldValue);
         System.out.println("Changed endpoint [" + objectClass.getSimpleName() + "] request body field [" + fieldName + "] value to [" + fieldValue + "]");
-        HTMLReporter.getCurrentReportNode()
+        getCurrentReportNode()
                 .pass("Changed endpoint [" + objectClass.getSimpleName() + "] request body field [" + fieldName + "] value to [" + fieldValue + "]");
     }
 
@@ -134,14 +134,14 @@ public class BaseEndpoint {
             System.out.println("Request headers: [" + request.headers() + "]");
             System.out.println("Response headers: [" + response.headers() + "]");
             System.out.println("Response body: [" + responseBody + "]");
-            HTMLReporter.getCurrentReportNode()
-                    .pass("Send GET request to endpoint [" + objectClass.getSimpleName() + "] with URL: [" + urlBuilder + "] successfully!");
-            HTMLReporter.getCurrentReportNode().info(getHtmlReporter().markupTextWithColor("Request URL: "+urlBuilder, ExtentColor.BLUE));
-            HTMLReporter.getCurrentReportNode().info(getHtmlReporter().markupTextWithColor("Response body", ExtentColor.GREEN));
-            HTMLReporter.getCurrentReportNode().info(getHtmlReporter().markupJSONCodeBlock(responseBody));
+            getCurrentReportNode()
+                    .pass(getHtmlReporter().markupTextWithColor("Send GET request to endpoint [" + objectClass.getSimpleName() + "] with URL: [" + urlBuilder + "] successfully!", ExtentColor.GREEN));
+            getCurrentReportNode().info(getHtmlReporter().markupRequestInfoTable("GET", urlBuilder.toString(), String.valueOf(response.code())));
+            getCurrentReportNode().info(getHtmlReporter().markupTextWithColor("Response body", ExtentColor.GREEN));
+            getCurrentReportNode().info(getHtmlReporter().markupJSONCodeBlock(responseBody));
         } catch (IOException e) {
             System.out.println("Failed to send GET request to endpoint[" + urlBuilder + "]");
-            HTMLReporter.getCurrentReportNode()
+            getCurrentReportNode()
                     .fail("Failed to send GET request to endpoint[" + urlBuilder + "]");
         }
     }
@@ -160,18 +160,16 @@ public class BaseEndpoint {
             System.out.println("Send POST request to endpoint [" + objectClass.getSimpleName() + "] with URL: [" + urlBuilder + "] successfully!");
             System.out.println("Request headers: [" + request.headers() + "]");
             System.out.println("Request body: [" + requestJSON.toString() + "]");
-            HTMLReporter.getCurrentReportNode().info(getHtmlReporter().markupTextWithColor("Request URL: "+urlBuilder, ExtentColor.BLUE));
-            HTMLReporter.getCurrentReportNode().info(getHtmlReporter().markupTextWithColor("Request body", ExtentColor.GREEN));
-            HTMLReporter.getCurrentReportNode().info(getHtmlReporter().markupJSONCodeBlock(requestJSON.toString()));
-            System.out.println("Response headers: [" + response.headers() + "]");
-            System.out.println("Response body: [" + responseBody + "]");
-            HTMLReporter.getCurrentReportNode()
-                    .pass("Send POST request to endpoint [" + objectClass.getSimpleName() + "] with URL: [" + urlBuilder + "] successfully!");
-            HTMLReporter.getCurrentReportNode().info(getHtmlReporter().markupTextWithColor("Response body", ExtentColor.GREEN));
-            HTMLReporter.getCurrentReportNode().info(getHtmlReporter().markupJSONCodeBlock(responseBody));
+            getCurrentReportNode()
+                    .pass(getHtmlReporter().markupTextWithColor("Send POST request to endpoint [" + objectClass.getSimpleName() + "] with URL: [" + urlBuilder + "] successfully!", ExtentColor.BLUE));
+            getCurrentReportNode().info(getHtmlReporter().markupRequestInfoTable("POST", urlBuilder.toString(), String.valueOf(response.code())));
+            getCurrentReportNode().info(getHtmlReporter().markupTextWithColor("Request body", ExtentColor.GREEN));
+            getCurrentReportNode().info(getHtmlReporter().markupJSONCodeBlock(requestJSON.toString()));
+            getCurrentReportNode().info(getHtmlReporter().markupTextWithColor("Response body", ExtentColor.GREEN));
+            getCurrentReportNode().info(getHtmlReporter().markupJSONCodeBlock(responseBody));
         } catch (IOException e) {
             System.out.println("Failed to send POST request to endpoint[" + urlBuilder + "]");
-            HTMLReporter.getCurrentReportNode()
+            getCurrentReportNode()
                     .fail("Failed to send POST request to endpoint[" + urlBuilder + "]");
         }
     }
@@ -206,11 +204,11 @@ public class BaseEndpoint {
         try {
             Assert.assertTrue(isResponseCodeEquals(expectedCode));
             System.out.println("Expected endpoint [" + objectClass.getSimpleName() + "] has response code [" + expectedCode + "] is equal with actual [" + getResponse().code() + "]");
-            HTMLReporter.getCurrentReportNode()
+            getCurrentReportNode()
                     .pass("Expected endpoint [" + objectClass.getSimpleName() + "] has response code [" + expectedCode + "] is equal with actual [" + getResponse().code() + "]");
         } catch (AssertionError e) {
             System.out.println("Expected endpoint [" + objectClass.getSimpleName() + "] has response code [" + expectedCode + "] is NOT equal with actual [" + getResponse().code() + "]");
-            HTMLReporter.getCurrentReportNode()
+            getCurrentReportNode()
                     .fail("Expected endpoint [" + objectClass.getSimpleName() + "] has response code [" + expectedCode + "] is NOT equal with actual [" + getResponse().code() + "]");
         }
     }
@@ -223,11 +221,11 @@ public class BaseEndpoint {
         try {
             Assert.assertEquals(actualValue, expectedValue);
             System.out.println("Expected response of endpoint [" + objectClass.getSimpleName() + "] field [" + fieldName + "] with value: [" + expectedValue + "] is equal with actual [" + actualValue + "]");
-            HTMLReporter.getCurrentReportNode()
+            getCurrentReportNode()
                     .pass("Expected response of endpoint [" + objectClass.getSimpleName() + "] field [" + fieldName + "] with value: [" + expectedValue + "] is equal with actual [" + actualValue + "]");
         } catch (Exception e) {
             System.out.println("Expected response of endpoint [" + objectClass.getSimpleName() + "] field [" + fieldName + "] with value: [" + expectedValue + "] is NOT equal with actual [" + actualValue + "]");
-            HTMLReporter.getCurrentReportNode()
+            getCurrentReportNode()
                     .fail("Expected response of endpoint [" + objectClass.getSimpleName() + "] field [" + fieldName + "] with value: [" + expectedValue + "] is NOT equal with actual [" + actualValue + "]");
         }
     }
@@ -237,11 +235,11 @@ public class BaseEndpoint {
         try {
             Assert.assertNotEquals(convertResponseToJSONObject().get(fieldName), null);
             System.out.println("Expected response of endpoint [" + objectClass.getSimpleName() + "] field [" + fieldName + "] is existed.");
-            HTMLReporter.getCurrentReportNode()
-                    .pass(getHtmlReporter().markupTextWithColor("Expected response of endpoint [" + objectClass.getSimpleName() + "] field [" + fieldName + "] is existed.",ExtentColor.CYAN));
+            getCurrentReportNode()
+                    .pass("Expected response of endpoint [" + objectClass.getSimpleName() + "] field [" + fieldName + "] is existed.");
         } catch (JSONException e) {
             System.out.println("Expected response of endpoint [" + objectClass.getSimpleName() + "] field [" + fieldName + "] is NOT existed.");
-            HTMLReporter.getCurrentReportNode()
+            getCurrentReportNode()
                     .fail("Expected response of endpoint [" + objectClass.getSimpleName() + "] field [" + fieldName + "] is NOT existed.");
         }
     }
