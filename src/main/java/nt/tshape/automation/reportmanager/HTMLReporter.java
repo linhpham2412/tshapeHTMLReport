@@ -2,7 +2,12 @@ package nt.tshape.automation.reportmanager;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.markuputils.CodeLanguage;
+import com.aventstack.extentreports.markuputils.ExtentColor;
+import com.aventstack.extentreports.markuputils.Markup;
+import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import org.json.JSONObject;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -98,5 +103,13 @@ public class HTMLReporter {
         } else {
             createReportCaptureScreenShotFolder();
         }
+    }
+
+    public Markup markupTextWithColor(String text, ExtentColor color){
+        return MarkupHelper.createLabel(text, color);
+    }
+
+    public Markup markupJSONCodeBlock(String jsonObject){
+        return MarkupHelper.createCodeBlock(jsonObject, CodeLanguage.JSON);
     }
 }
