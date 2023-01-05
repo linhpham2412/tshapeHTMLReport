@@ -4,25 +4,25 @@ import nt.tshape.automation.selenium.Endpoint.UserEndpoint;
 import org.testng.annotations.Test;
 
 public class ReqresInAutomationAPITestingFlow {
-    private UserEndpoint userEndpoint = new UserEndpoint();
+    private final UserEndpoint userEndpoint = new UserEndpoint();
 
     @Test
-    public void RegresInAutomationUsersAPIFlow(){
+    public void RegresInAutomationUsersAPIFlow() {
         userEndpoint
                 .addCustomHeader("X-Requested-With", "XMLHttpRequest")
-                .addQueryParamNameWithValue("page","2")
+                .addQueryParamNameWithValue("page", "2")
                 .callGETRequest()
                 .verifyUserEndpointResponseCodeEqual(200)
                 .addPathParamWithValue("2")
                 .callGETRequest()
                 .verifyUserEndpointResponseCodeEqual(200)
                 .addRequestBody()
-                .changeUserNameTo("morpheus1")
-                .changeUserJobTo("leader1")
+                .changeRequestFieldNameToValue("name", "morpheus1")
+                .changeRequestFieldNameToValue("job", "leader1")
                 .callPostRequestWithBody()
                 .verifyUserEndpointResponseCodeEqual(201)
-                .verifyResponseUserFieldWithValue("name","morpheus1")
-                .verifyResponseUserFieldWithValue("job","leader1")
+                .verifyResponseUserFieldWithValue("name", "morpheus1")
+                .verifyResponseUserFieldWithValue("job", "leader1")
                 .verifyResponseUserFieldExist("id")
                 .verifyResponseUserFieldExist("createdAt");
     }

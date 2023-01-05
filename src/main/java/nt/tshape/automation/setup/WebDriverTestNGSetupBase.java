@@ -1,6 +1,5 @@
 package nt.tshape.automation.setup;
 
-import nt.tshape.automation.apimanager.BaseEndpoint;
 import nt.tshape.automation.reportmanager.HTMLReporter;
 import nt.tshape.automation.selenium.TestContext;
 import nt.tshape.automation.selenium.WebDriverManager;
@@ -12,6 +11,7 @@ import java.net.MalformedURLException;
 
 public class WebDriverTestNGSetupBase {
     private TestContext testContext;
+
     @AfterSuite
     public static void afterSuite() {
         HTMLReporter.getHtmlReporter().getExtentReports().flush();

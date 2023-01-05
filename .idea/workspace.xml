@@ -5,15 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e511842-e28f-43d1-bb62-9ba2bcf53899" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/RequestJSON/createUsersJSON.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/nt/tshape/automation/selenium/DataModel/UsersDataModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/apimanager/BaseEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/apimanager/BaseEndpoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/config/ConfigLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/config/ConfigLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/selenium/Constant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/selenium/Constant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Configuration/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/environment.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Configuration/environment.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/setup/WebDriverTestNGSetupBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/setup/WebDriverTestNGSetupBase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/nt/tshape/automation/selenium/Endpoint/UserEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nt/tshape/automation/selenium/Endpoint/UserEndpoint.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/nt/tshape/automation/selenium/TestCase/ReqresInAutomationAPITestingFlow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nt/tshape/automation/selenium/TestCase/ReqresInAutomationAPITestingFlow.java" afterDir="false" />
     </list>
@@ -25,6 +19,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -32,7 +27,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="add_new_page_and_test_steps" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -57,17 +52,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "last_opened_file_path": "C:/Users/linhpham/Documents/Git_Repository/HTMLReport/src/main/resources/Configuration",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/linhpham/Documents/Git_Repository/HTMLReport/src/main/resources/Configuration&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="nt.tshape.automation.apimanager" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\linhpham\Documents\Git_Repository\HTMLReport\src\test\java\nt\tshape\automation\selenium" />
       <recent name="C:\Users\linhpham\Documents\Git_Repository\HTMLReport\src\test\java" />
@@ -166,16 +164,5 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit master" />
     <option name="LAST_COMMIT_MESSAGE" value="commit master" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/nt/tshape/automation/apimanager/BaseEndpoint.java</url>
-          <line>138</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
