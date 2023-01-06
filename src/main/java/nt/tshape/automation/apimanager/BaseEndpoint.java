@@ -134,11 +134,10 @@ public class BaseEndpoint {
             System.out.println("Request headers: [" + request.headers() + "]");
             System.out.println("Response headers: [" + response.headers() + "]");
             System.out.println("Response body: [" + responseBody + "]");
+            if (requestJSON == null) requestJSON = new JSONObject();
             getCurrentReportNode()
                     .pass(getHtmlReporter().markupTextWithColor("Send GET request to endpoint [" + objectClass.getSimpleName() + "] with URL: [" + urlBuilder + "] successfully!", ExtentColor.GREEN));
-            getCurrentReportNode().info(getHtmlReporter().markupRequestInfoTable("GET", urlBuilder.toString(), String.valueOf(response.code())));
-            getCurrentReportNode().info(getHtmlReporter().markupTextWithColor("Response body", ExtentColor.GREEN));
-            getCurrentReportNode().info(getHtmlReporter().markupJSONCodeBlock(responseBody));
+            getCurrentReportNode().info(getHtmlReporter().markupRequestInfoTable("GET", String.valueOf(urlBuilder), requestJSON.toString(), responseBody, String.valueOf(response.code())));
         } catch (IOException e) {
             System.out.println("Failed to send GET request to endpoint[" + urlBuilder + "]");
             getCurrentReportNode()
@@ -162,11 +161,7 @@ public class BaseEndpoint {
             System.out.println("Request body: [" + requestJSON.toString() + "]");
             getCurrentReportNode()
                     .pass(getHtmlReporter().markupTextWithColor("Send POST request to endpoint [" + objectClass.getSimpleName() + "] with URL: [" + urlBuilder + "] successfully!", ExtentColor.BLUE));
-            getCurrentReportNode().info(getHtmlReporter().markupRequestInfoTable("POST", urlBuilder.toString(), String.valueOf(response.code())));
-            getCurrentReportNode().info(getHtmlReporter().markupTextWithColor("Request body", ExtentColor.GREEN));
-            getCurrentReportNode().info(getHtmlReporter().markupJSONCodeBlock(requestJSON.toString()));
-            getCurrentReportNode().info(getHtmlReporter().markupTextWithColor("Response body", ExtentColor.GREEN));
-            getCurrentReportNode().info(getHtmlReporter().markupJSONCodeBlock(responseBody));
+            getCurrentReportNode().info(getHtmlReporter().markupRequestInfoTable("POST", String.valueOf(urlBuilder), requestJSON.toString(), responseBody, String.valueOf(response.code())));
         } catch (IOException e) {
             System.out.println("Failed to send POST request to endpoint[" + urlBuilder + "]");
             getCurrentReportNode()
