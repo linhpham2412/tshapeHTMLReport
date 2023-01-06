@@ -6,7 +6,7 @@ import com.aventstack.extentreports.markuputils.CodeLanguage;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.Markup;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
-import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -22,7 +22,7 @@ import java.time.format.DateTimeFormatter;
 public class HTMLReporter {
     private static HTMLReporter htmlReporter;
     private static ExtentReports extentReports;
-    private static ExtentSparkReporter extentSparkReporter;
+    private static ExtentHtmlReporter extentHTMLReporter;
     private static ExtentTest currentReportClass;
     private static ExtentTest currentReportNode;
     private static String reportOutPutFolderName;
@@ -30,8 +30,9 @@ public class HTMLReporter {
     public HTMLReporter(String reportName, String reportOutPutFolderPrefixName) {
         reportOutPutFolderName = reportOutPutFolderPrefixName + getReportCurrentDateTime();
         extentReports = new ExtentReports();
-        extentSparkReporter = new ExtentSparkReporter(getCurrentRunningReportLocation() + reportOutPutFolderName + "\\" + reportName);
-        extentReports.attachReporter(extentSparkReporter);
+        extentHTMLReporter = new ExtentHtmlReporter(getCurrentRunningReportLocation() + reportOutPutFolderName + "\\" + reportName);
+        extentHTMLReporter.loadXMLConfig("src/main/java/nt/tshape/automation/reportmanager/ReportXMLConfig.xml");
+        extentReports.attachReporter(extentHTMLReporter);
     }
 
     public static void initHTMLReporter(String reporterName, String reportOutPutFolderPrefixName) {
@@ -112,10 +113,14 @@ public class HTMLReporter {
         return MarkupHelper.createCodeBlock(jsonObject, CodeLanguage.JSON);
     }
 
-    public Markup markupRequestInfoTable(String requestType, String requestURL, String responseCode) {
-        String[][] tableData = new String[2][3];
-        tableData[0] = new String[]{"Request Type", "Request URL", "Response Code"};
-        tableData[1] = new String[]{requestType, requestURL, responseCode};
+    public Markup markupRequestInfoTable(String requestType, String requestURL, String requestBody, String responseBody, String responseCode) {
+        String[][] tableData = new String[4][3];
+        tableData[0] = new String[]{"Request Type", "Request URL", "Request Body"};
+        tableData[1] = new String[]{requestType, requestURL, requestBody};
+        tableData[2] = new String[]{"", "Response Body", "Response Code"};
+        tableData[3] = new String[]{"", responseBody, responseCode};
+//        tableData[4] = new String[]{"Response Body",responseBody};
+//        tableData[5] = new String[]{"Response Code",responseCode};
         return MarkupHelper.createTable(tableData);
     }
 }
