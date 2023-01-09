@@ -113,14 +113,12 @@ public class HTMLReporter {
         return MarkupHelper.createCodeBlock(jsonObject, CodeLanguage.JSON);
     }
 
-    public Markup markupRequestInfoTable(String requestType, String requestURL, String requestBody, String responseBody, String responseCode) {
+    public Markup markupRequestInfoTable(String requestType, String requestURL, String requestBody, String responseTimeInMiliSecond, String responseBody, String responseCode) {
         String[][] tableData = new String[4][3];
         tableData[0] = new String[]{"Request Type", "Request URL", "Request Body"};
         tableData[1] = new String[]{requestType, requestURL, requestBody};
-        tableData[2] = new String[]{"", "Response Body", "Response Code"};
-        tableData[3] = new String[]{"", responseBody, responseCode};
-//        tableData[4] = new String[]{"Response Body",responseBody};
-//        tableData[5] = new String[]{"Response Code",responseCode};
+        tableData[2] = new String[]{"Response Time", "Response Body", "Response Code"};
+        tableData[3] = new String[]{responseTimeInMiliSecond+"ms", responseBody, responseCode};
         return MarkupHelper.createTable(tableData);
     }
 }
