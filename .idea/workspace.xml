@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e511842-e28f-43d1-bb62-9ba2bcf53899" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/reportmanager/tableHTMLFrame.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/apimanager/BaseEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/apimanager/BaseEndpoint.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/reportmanager/HTMLReporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/reportmanager/HTMLReporter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/reportmanager/ReportXMLConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/reportmanager/ReportXMLConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/nt/tshape/automation/selenium/Endpoint/UserEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nt/tshape/automation/selenium/Endpoint/UserEndpoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/nt/tshape/automation/selenium/TestCase/ReqresInAutomationAPITestingFlow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nt/tshape/automation/selenium/TestCase/ReqresInAutomationAPITestingFlow.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +28,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="update_html_report_library" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -125,8 +127,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="TestNG.C:/Users/linhpham/Documents/Git_Repository/HTMLReport/testng.xml" />
-        <item itemvalue="Application.HTMLTestReport" />
         <item itemvalue="TestNG.Exercise1RegisterNewAccountTestCasesBase.RegisterNewAccount" />
+        <item itemvalue="Application.HTMLTestReport" />
+        <item itemvalue="TestNG.C:/Users/linhpham/Documents/Git_Repository/HTMLReport/testng.xml" />
+        <item itemvalue="Application.HTMLTestReport" />
       </list>
     </recent_temporary>
   </component>

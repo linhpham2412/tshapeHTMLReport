@@ -1,0 +1,33 @@
+<table class='runtime-table table-striped table'>
+    <tr>
+        <td>%RequestType%</td>
+        <td><span class='blue-text'>%RequestURL%</span></td>
+        <td><span class='black-text'>Request body:</span>
+            <div class='json-tree' id='%RequestBodyID%'></div>
+            <script>
+      function %RequestBodyFunctionName%() {
+        document.getElementById('%RequestBodyID%').innerHTML = JSONTree.create(%RequestBodyContent%);
+}
+      %RequestBodyFunctionName%();
+
+
+            </script>
+        </td>
+    </tr>
+    <tr>
+        <td><span class='black-text'>Response Time: </span><span class='green-text'>%ResponseTime%</span></td>
+        <td><span class='black-text'>Response Body:</span>
+            <div class='json-tree' id='%ResponseBodyID%'></div>
+            <script>
+        function %ResponseBodyFunctionName%() {
+          document.getElementById('%ResponseBodyID%').innerHTML = JSONTree.create(%ResponseBodyContent%);
+}
+        %ResponseBodyFunctionName%();
+
+
+            </script>
+        </td>
+        <td><span class='black-text'>Response Code: </span><span class='badge white-text green'>%ResponseCode%</span>
+        </td>
+    </tr>
+</table>
