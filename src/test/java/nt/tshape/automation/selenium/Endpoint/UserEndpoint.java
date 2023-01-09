@@ -52,6 +52,18 @@ public class UserEndpoint extends BaseEndpoint {
         return this;
     }
 
+    @SneakyThrows
+    public UserEndpoint callPutRequestWithBody() {
+        sendPutRequestWithBody(UserEndpoint.class);
+        return this;
+    }
+
+    @SneakyThrows
+    public UserEndpoint callDeleteRequestWithBody() {
+        sendDeleteRequest(UserEndpoint.class);
+        return this;
+    }
+
     //Verify
     public UserEndpoint verifyUserEndpointResponseCodeEqual(int expectedCode) {
         verifyEndpointResponseCodeEqual(expectedCode, UserEndpoint.class);

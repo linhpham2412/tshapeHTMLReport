@@ -139,13 +139,13 @@ public class BaseEndpoint {
             System.out.println("Request headers: [" + request.headers() + "]");
             System.out.println("Response headers: [" + response.headers() + "]");
             System.out.println("Response body: [" + responseBody + "]");
-            int startTime = startRequestTime.getSecond()*1000+startRequestTime.getNano()/1000000;
-            int endTime = endRequestTime.getSecond()*1000+endRequestTime.getNano()/1000000;
-            System.out.println("Request time: [" + (endTime-startTime) + "ms]");
+            int startTime = startRequestTime.getSecond() * 1000 + startRequestTime.getNano() / 1000000;
+            int endTime = endRequestTime.getSecond() * 1000 + endRequestTime.getNano() / 1000000;
+            System.out.println("Request time: [" + (endTime - startTime) + "ms]");
             if (requestJSON == null) requestJSON = new JSONObject();
             getCurrentReportNode()
                     .pass(getHtmlReporter().markupTextWithColor("Send GET request to endpoint [" + objectClass.getSimpleName() + "] with URL: [" + urlBuilder + "] successfully!", ExtentColor.GREEN));
-            getCurrentReportNode().info(getHtmlReporter().markupRequestInfoTable("GET", String.valueOf(urlBuilder), requestJSON.toString(), String.valueOf((endTime-startTime)), responseBody, String.valueOf(response.code())));
+            getCurrentReportNode().info(getHtmlReporter().markupCreateAPIInfoBlock("GET", String.valueOf(urlBuilder), requestJSON.toString(), String.valueOf((endTime - startTime)), responseBody, String.valueOf(response.code())));
         } catch (IOException e) {
             System.out.println("Failed to send GET request to endpoint[" + urlBuilder + "]");
             getCurrentReportNode()
@@ -170,16 +170,76 @@ public class BaseEndpoint {
             System.out.println("Send POST request to endpoint [" + objectClass.getSimpleName() + "] with URL: [" + urlBuilder + "] successfully!");
             System.out.println("Request headers: [" + request.headers() + "]");
             System.out.println("Request body: [" + requestJSON.toString() + "]");
-            int startTime = startRequestTime.getSecond()*1000+startRequestTime.getNano()/1000000;
-            int endTime = endRequestTime.getSecond()*1000+endRequestTime.getNano()/1000000;
-            System.out.println("Request time: [" + (endTime-startTime) + "ms]");
+            int startTime = startRequestTime.getSecond() * 1000 + startRequestTime.getNano() / 1000000;
+            int endTime = endRequestTime.getSecond() * 1000 + endRequestTime.getNano() / 1000000;
+            System.out.println("Request time: [" + (endTime - startTime) + "ms]");
             getCurrentReportNode()
-                    .pass(getHtmlReporter().markupTextWithColor("Send POST request to endpoint [" + objectClass.getSimpleName() + "] with URL: [" + urlBuilder + "] successfully!", ExtentColor.BLUE));
-            getCurrentReportNode().info(getHtmlReporter().markupRequestInfoTable("POST", String.valueOf(urlBuilder), requestJSON.toString(), String.valueOf((endTime-startTime)), responseBody, String.valueOf(response.code())));
+                    .pass(getHtmlReporter().markupTextWithColor("Send POST request to endpoint [" + objectClass.getSimpleName() + "] with URL: [" + urlBuilder + "] successfully!", ExtentColor.ORANGE));
+            getCurrentReportNode().info(getHtmlReporter().markupCreateAPIInfoBlock("POST", String.valueOf(urlBuilder), requestJSON.toString(), String.valueOf((endTime - startTime)), responseBody, String.valueOf(response.code())));
         } catch (IOException e) {
             System.out.println("Failed to send POST request to endpoint[" + urlBuilder + "]");
             getCurrentReportNode()
                     .fail("Failed to send POST request to endpoint[" + urlBuilder + "]");
+        }
+    }
+
+    protected <T> void sendPutRequestWithBody(Class<T> objectClass) {
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(baseHost).newBuilder();
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        try {
+            Request request = new Request.Builder()
+                    .url(buildEndpointURL(urlBuilder))
+                    .headers(headers)
+                    .put(RequestBody.create(Constant.JSON, requestJSON.toString()))
+                    .build();
+            LocalDateTime startRequestTime = LocalDateTime.now();
+            response = apiClient.newCall(request).execute();
+            responseBody = response.body().string();
+            LocalDateTime endRequestTime = LocalDateTime.now();
+            clearAllParams();
+            System.out.println("Send PUT request to endpoint [" + objectClass.getSimpleName() + "] with URL: [" + urlBuilder + "] successfully!");
+            System.out.println("Request headers: [" + request.headers() + "]");
+            System.out.println("Request body: [" + requestJSON.toString() + "]");
+            int startTime = startRequestTime.getSecond() * 1000 + startRequestTime.getNano() / 1000000;
+            int endTime = endRequestTime.getSecond() * 1000 + endRequestTime.getNano() / 1000000;
+            System.out.println("Request time: [" + (endTime - startTime) + "ms]");
+            getCurrentReportNode()
+                    .pass(getHtmlReporter().markupTextWithColor("Send PUT request to endpoint [" + objectClass.getSimpleName() + "] with URL: [" + urlBuilder + "] successfully!", ExtentColor.BLUE));
+            getCurrentReportNode().info(getHtmlReporter().markupCreateAPIInfoBlock("PUT", String.valueOf(urlBuilder), requestJSON.toString(), String.valueOf((endTime - startTime)), responseBody, String.valueOf(response.code())));
+        } catch (IOException e) {
+            System.out.println("Failed to send PUT request to endpoint[" + urlBuilder + "]");
+            getCurrentReportNode()
+                    .fail("Failed to send PUT request to endpoint[" + urlBuilder + "]");
+        }
+    }
+
+    protected <T> void sendDeleteRequest(Class<T> objectClass) {
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(baseHost).newBuilder();
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        try {
+            Request request = new Request.Builder()
+                    .url(buildEndpointURL(urlBuilder))
+                    .headers(headers)
+                    .delete()
+                    .build();
+            LocalDateTime startRequestTime = LocalDateTime.now();
+            response = apiClient.newCall(request).execute();
+            responseBody = response.body().string();
+            LocalDateTime endRequestTime = LocalDateTime.now();
+            clearAllParams();
+            System.out.println("Send DELETE request to endpoint [" + objectClass.getSimpleName() + "] with URL: [" + urlBuilder + "] successfully!");
+            System.out.println("Request headers: [" + request.headers() + "]");
+            System.out.println("Request body: [" + requestJSON.toString() + "]");
+            int startTime = startRequestTime.getSecond() * 1000 + startRequestTime.getNano() / 1000000;
+            int endTime = endRequestTime.getSecond() * 1000 + endRequestTime.getNano() / 1000000;
+            System.out.println("Request time: [" + (endTime - startTime) + "ms]");
+            getCurrentReportNode()
+                    .pass(getHtmlReporter().markupTextWithColor("Send DELETE request to endpoint [" + objectClass.getSimpleName() + "] with URL: [" + urlBuilder + "] successfully!", ExtentColor.RED));
+            getCurrentReportNode().info(getHtmlReporter().markupCreateAPIInfoBlock("DELETE", String.valueOf(urlBuilder), requestJSON.toString(), String.valueOf((endTime - startTime)), responseBody, String.valueOf(response.code())));
+        } catch (IOException e) {
+            System.out.println("Failed to send DELETE request to endpoint[" + urlBuilder + "]");
+            getCurrentReportNode()
+                    .fail("Failed to send DELETE request to endpoint[" + urlBuilder + "]");
         }
     }
 

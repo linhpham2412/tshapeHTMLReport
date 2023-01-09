@@ -25,6 +25,15 @@ public class ReqresInAutomationAPITestingFlow extends WebDriverTestNGSetupBase {
                 .verifyResponseUserFieldWithValue("name", "morpheus1")
                 .verifyResponseUserFieldWithValue("job", "leader1")
                 .verifyResponseUserFieldExist("id")
-                .verifyResponseUserFieldExist("createdAt");
+                .verifyResponseUserFieldExist("createdAt")
+                .addRequestBody()
+                .changeRequestFieldNameToValue("name", "morpheus")
+                .changeRequestFieldNameToValue("job", "zion resident")
+                .addPathParamWithValue("2")
+                .callPutRequestWithBody()
+                .verifyUserEndpointResponseCodeEqual(200)
+                .addPathParamWithValue("2")
+                .callDeleteRequestWithBody()
+                .verifyUserEndpointResponseCodeEqual(204);
     }
 }
