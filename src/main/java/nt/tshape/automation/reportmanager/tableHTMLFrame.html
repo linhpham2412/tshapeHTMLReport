@@ -1,3 +1,16 @@
+%RequestMessage%
+<div id='%runtimeHTMLReport-div%'>
+    <script>
+    function %runtimeHTMLReport-div%(){
+            var displayStatus_%runtimeHTMLReport-div% = document.getElementById('%runtimeHTMLReport-div%');
+            if ( displayStatus_%runtimeHTMLReport-div%.style.display == 'none' ){
+              displayStatus_%runtimeHTMLReport-div%.style.display = 'block';
+            } else {
+              displayStatus_%runtimeHTMLReport-div%.style.display = 'none';
+            }
+        };
+        %runtimeHTMLReport-div%();
+    </script>
 <table class='runtime-table table-striped table'>
     <tr>
         <td>%RequestType%</td>
@@ -9,8 +22,6 @@
         document.getElementById('%RequestBodyID%').innerHTML = JSONTree.create(%RequestBodyContent%);
 }
       %RequestBodyFunctionName%();
-
-
             </script>
         </td>
     </tr>
@@ -31,3 +42,4 @@
         </td>
     </tr>
 </table>
+</div>

@@ -116,20 +116,35 @@ public class HTMLReporter {
     }
 
     @SneakyThrows
-    public String markupCreateAPIInfoBlock(String requestType, String requestURL, String requestBody, String responseTime, String responseBody, String responseCode) {
+    public String markupCreateAPIInfoBlock(String requestMessage, String requestType, String requestURL, String requestBody, String responseTime, String responseBody, String responseCode) {
         String tableHTMLFrame = Files.readString(Paths.get("src/main/java/nt/tshape/automation/reportmanager/tableHTMLFrame.html"));
         String randomID = Utils.generateRandomNumberInRange(100000, 999999);
+        String reqRuntimeHTMLReportDivID = "runtimeHTMLReport_div_"+randomID;
         String reqBodyElementID = "req_json_body_" + randomID;
         String reqBodyScriptFunctionName = "req_function_" + randomID;
         String resBodyElementID = "res_json_body_" + randomID;
         String resBodyScriptFunctionName = "res_function_" + randomID;
         responseTime += "ms";
         switch (requestType) {
-            case "GET" -> requestType = "<span class='badge white-text green'>GET</span>";
-            case "POST" -> requestType = "<span class='badge white-text orange'>POST</span>";
-            case "PUT" -> requestType = "<span class='badge white-text blue'>PUT</span>";
-            case "DELETE" -> requestType = "<span class='badge white-text red'>DELETE</span>";
+            case "GET":
+                requestType = "<span class='badge white-text green'>GET</span>";
+                requestMessage = "<div onclick="+reqRuntimeHTMLReportDivID+"() style=\"color:green;\"><b>"+requestMessage+"</b></div>";
+                break;
+            case "POST" :
+                requestType = "<span class='badge white-text orange'>POST</span>";
+                requestMessage = "<div onclick="+reqRuntimeHTMLReportDivID+"() style=\"color:orange;\"><b>"+requestMessage+"</b></div>";
+                break;
+            case "PUT" :
+                requestType = "<span class='badge white-text blue'>PUT</span>";
+                requestMessage = "<div onclick="+reqRuntimeHTMLReportDivID+"() style=\"color:blue;\"><b>"+requestMessage+"</b></div>";
+                break;
+            case "DELETE" :
+                requestType = "<span class='badge white-text red'>DELETE</span>";
+                requestMessage = "<div onclick="+reqRuntimeHTMLReportDivID+"() style=\"color:red;\"><b>"+requestMessage+"</b></div>";
+                break;
         }
+        tableHTMLFrame = tableHTMLFrame.replaceAll("%RequestMessage%", requestMessage);
+        tableHTMLFrame = tableHTMLFrame.replaceAll("%runtimeHTMLReport-div%", reqRuntimeHTMLReportDivID);
         tableHTMLFrame = tableHTMLFrame.replaceAll("%RequestType%", requestType);
         tableHTMLFrame = tableHTMLFrame.replaceAll("%RequestURL%", requestURL);
         tableHTMLFrame = tableHTMLFrame.replaceAll("%RequestBodyID%", reqBodyElementID);

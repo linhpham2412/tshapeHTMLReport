@@ -1,39 +1,33 @@
 package nt.tshape.automation.selenium.TestCase;
 
-import nt.tshape.automation.selenium.Endpoint.UserEndpoint;
+import nt.tshape.automation.selenium.Endpoint.Users.UserEndpoint;
+import nt.tshape.automation.selenium.Endpoint.Users.UserID.UserIdEndpoint;
 import nt.tshape.automation.setup.WebDriverTestNGSetupBase;
 import org.testng.annotations.Test;
 
 public class ReqresInAutomationAPITestingFlow extends WebDriverTestNGSetupBase {
-    private final UserEndpoint userEndpoint = new UserEndpoint();
+    private final UserEndpoint userEndpoint = new UserEndpoint(getTestContext());
+    private final UserIdEndpoint userIdEndpoint = new UserIdEndpoint(getTestContext());
 
     @Test
     public void RegresInAutomationUsersAPIFlow() {
         userEndpoint
-                .addCustomHeader("X-Requested-With", "XMLHttpRequest")
+                .addCustomHeader("Content-Type", "application/json")
                 .addQueryParamNameWithValue("page", "2")
                 .callGETRequest()
                 .verifyUserEndpointResponseCodeEqual(200)
-                .addPathParamWithValue("2")
-                .callGETRequest()
-                .verifyUserEndpointResponseCodeEqual(200)
-                .addRequestBody()
-                .changeRequestFieldNameToValue("name", "morpheus1")
-                .changeRequestFieldNameToValue("job", "leader1")
-                .callPostRequestWithBody()
-                .verifyUserEndpointResponseCodeEqual(201)
-                .verifyResponseUserFieldWithValue("name", "morpheus1")
-                .verifyResponseUserFieldWithValue("job", "leader1")
-                .verifyResponseUserFieldExist("id")
-                .verifyResponseUserFieldExist("createdAt")
-                .addRequestBody()
-                .changeRequestFieldNameToValue("name", "morpheus")
-                .changeRequestFieldNameToValue("job", "zion resident")
-                .addPathParamWithValue("2")
-                .callPutRequestWithBody()
-                .verifyUserEndpointResponseCodeEqual(200)
-                .addPathParamWithValue("2")
-                .callDeleteRequestWithBody()
-                .verifyUserEndpointResponseCodeEqual(204);
+                .addUserRequestBody()
+                .callPostToUserEndpointRequestWithBodyAndSaveCreatedUserId()
+                .verifyUserEndpointResponseCodeEqual(201);
+        userIdEndpoint
+                .callGETRequestBySavedUserId()
+                .verifyUserIDEndpointResponseCodeEqual(200)
+                .addUserIdRequestBody()
+                .changeUserIdRequestFieldNameToValue("name","morpheus1")
+                .changeUserIdRequestFieldNameToValue("job","leader1")
+                .callUPDATERequestBySavedUserId()
+                .verifyUserIDEndpointResponseCodeEqual(201)
+                .callDELETERequestBySavedUserId()
+                .verifyUserIDEndpointResponseCodeEqual(204);
     }
 }

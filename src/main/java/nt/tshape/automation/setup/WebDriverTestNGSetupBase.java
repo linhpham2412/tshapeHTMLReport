@@ -1,5 +1,6 @@
 package nt.tshape.automation.setup;
 
+import nt.tshape.automation.apimanager.UniversalEndpoint;
 import nt.tshape.automation.reportmanager.HTMLReporter;
 import nt.tshape.automation.selenium.TestContext;
 import nt.tshape.automation.selenium.WebDriverManager;
@@ -10,7 +11,7 @@ import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 
 public class WebDriverTestNGSetupBase {
-    private TestContext testContext;
+    private TestContext testContext = new TestContext();
 
     @AfterSuite
     public static void afterSuite() {
@@ -30,7 +31,6 @@ public class WebDriverTestNGSetupBase {
     @BeforeSuite
     public void beforeSuiteSetUp(@Optional("chrome") String browser) throws MalformedURLException {
         WebDriverManager.iniDriver(browser);
-        testContext = new TestContext();
         HTMLReporter.initHTMLReporter("HTML_TestingReport.html", "HTMLReport_Test_Output_On_");
     }
 
