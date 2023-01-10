@@ -1,16 +1,19 @@
-package nt.tshape.automation.selenium.Endpoint;
+package nt.tshape.automation.selenium.Endpoint.Users;
 
 import lombok.SneakyThrows;
-import nt.tshape.automation.apimanager.BaseEndpoint;
+import nt.tshape.automation.apimanager.UniversalEndpoint;
+import nt.tshape.automation.selenium.DataModel.UsersDataModel;
+import nt.tshape.automation.selenium.TestContext;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class UserEndpoint extends BaseEndpoint {
+public class UserEndpoint extends UniversalEndpoint {
     private final String endpointPath = "api/users";
     private final String requestBodyLocation = "src/main/resources/RequestJSON/createUsersJSON.json";
 
-    public UserEndpoint() {
+    public UserEndpoint(TestContext testContext) {
+        super(testContext);
         setEndpointPath(endpointPath);
     }
 
@@ -25,10 +28,6 @@ public class UserEndpoint extends BaseEndpoint {
         return this;
     }
 
-    public UserEndpoint addPathParamWithValue(String paramValue) {
-        addPathParameterWithValue(paramValue, UserEndpoint.class);
-        return this;
-    }
 
     public UserEndpoint addCustomHeader(String headerName, String headerValue) {
         addHeader(headerName, headerValue, UserEndpoint.class);
@@ -36,7 +35,7 @@ public class UserEndpoint extends BaseEndpoint {
     }
 
     @SneakyThrows
-    public UserEndpoint addRequestBody() {
+    public UserEndpoint addUserRequestBody() {
         createRequestBody(Files.readString(Paths.get(requestBodyLocation)), UserEndpoint.class);
         return this;
     }
@@ -47,20 +46,10 @@ public class UserEndpoint extends BaseEndpoint {
     }
 
     @SneakyThrows
-    public UserEndpoint callPostRequestWithBody() {
+    public UserEndpoint callPostToUserEndpointRequestWithBodyAndSaveCreatedUserId() {
         sendPostRequestWithBody(UserEndpoint.class);
-        return this;
-    }
-
-    @SneakyThrows
-    public UserEndpoint callPutRequestWithBody() {
-        sendPutRequestWithBody(UserEndpoint.class);
-        return this;
-    }
-
-    @SneakyThrows
-    public UserEndpoint callDeleteRequestWithBody() {
-        sendDeleteRequest(UserEndpoint.class);
+        UsersDataModel createdUser = super.convertResponseToObject(UsersDataModel.class);
+        getTestContext().setAttribute("UserID", createdUser.id);
         return this;
     }
 
