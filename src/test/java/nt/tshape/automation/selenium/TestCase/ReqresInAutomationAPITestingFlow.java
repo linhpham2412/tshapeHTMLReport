@@ -10,7 +10,7 @@ public class ReqresInAutomationAPITestingFlow extends WebDriverTestNGSetupBase {
     private final UserIdEndpoint userIdEndpoint = new UserIdEndpoint(getTestContext());
 
     @Test
-    public void RegresInAutomationUsersAPIFlow() {
+    public void RegresInUserEndpointAPI() {
         userEndpoint
                 .addCustomHeader("Content-Type", "application/json")
                 .addQueryParamNameWithValue("page", "2")
@@ -19,6 +19,9 @@ public class ReqresInAutomationAPITestingFlow extends WebDriverTestNGSetupBase {
                 .addUserRequestBody()
                 .callPostToUserEndpointRequestWithBodyAndSaveCreatedUserId()
                 .verifyUserEndpointResponseCodeEqual(201);
+    }
+    @Test
+    public void RegresInUserIdEndpointAPI(){
         userIdEndpoint
                 .callGETRequestBySavedUserId()
                 .verifyUserIDEndpointResponseCodeEqual(200)
@@ -30,4 +33,5 @@ public class ReqresInAutomationAPITestingFlow extends WebDriverTestNGSetupBase {
                 .callDELETERequestBySavedUserId()
                 .verifyUserIDEndpointResponseCodeEqual(204);
     }
+
 }
