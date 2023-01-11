@@ -5,16 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e511842-e28f-43d1-bb62-9ba2bcf53899" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/nt/tshape/automation/selenium/Endpoint/Users/UserID/UserIdEndpoint.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/apimanager/BaseEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/apimanager/UniversalEndpoint.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/reportmanager/HTMLReporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/reportmanager/HTMLReporter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/reportmanager/ReportXMLConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/reportmanager/ReportXMLConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/reportmanager/tableHTMLFrame.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/reportmanager/tableHTMLFrame.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/selenium/WebDriverCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/selenium/WebDriverCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/setup/WebDriverTestNGSetupBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nt/tshape/automation/setup/WebDriverTestNGSetupBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/nt/tshape/automation/selenium/Endpoint/UserEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nt/tshape/automation/selenium/Endpoint/Users/UserEndpoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/nt/tshape/automation/selenium/TestCase/ReqresInAutomationAPITestingFlow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nt/tshape/automation/selenium/TestCase/ReqresInAutomationAPITestingFlow.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,17 +52,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "last_opened_file_path": "C:/Users/linhpham/Documents/Git_Repository/HTMLReport/src/main/resources/Configuration",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "show.migrate.to.gradle.popup": "false"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/linhpham/Documents/Git_Repository/HTMLReport/src/main/resources/Configuration&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="nt.tshape.automation.apimanager" />
