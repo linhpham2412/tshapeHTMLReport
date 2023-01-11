@@ -128,20 +128,25 @@ public class HTMLReporter {
         switch (requestType) {
             case "GET":
                 requestType = "<span class='badge white-text green'>GET</span>";
-                requestMessage = "<div onclick="+reqRuntimeHTMLReportDivID+"() style=\"color:green;\"><b>"+requestMessage+"</b></div>";
+                requestMessage = "<div class=\"collapsible-header\" style=\"color:green;\"><b>"+requestMessage+"</b></div>";
                 break;
             case "POST" :
                 requestType = "<span class='badge white-text orange'>POST</span>";
-                requestMessage = "<div onclick="+reqRuntimeHTMLReportDivID+"() style=\"color:orange;\"><b>"+requestMessage+"</b></div>";
+                requestMessage = "<div class=\"collapsible-header\" style=\"color:orange;\"><b>"+requestMessage+"</b></div>";
                 break;
             case "PUT" :
                 requestType = "<span class='badge white-text blue'>PUT</span>";
-                requestMessage = "<div onclick="+reqRuntimeHTMLReportDivID+"() style=\"color:blue;\"><b>"+requestMessage+"</b></div>";
+                requestMessage = "<div class=\"collapsible-header\" style=\"color:blue;\"><b>"+requestMessage+"</b></div>";
                 break;
             case "DELETE" :
                 requestType = "<span class='badge white-text red'>DELETE</span>";
-                requestMessage = "<div onclick="+reqRuntimeHTMLReportDivID+"() style=\"color:red;\"><b>"+requestMessage+"</b></div>";
+                requestMessage = "<div class=\"collapsible-header\" style=\"color:red;\"><b>"+requestMessage+"</b></div>";
                 break;
+        }
+        switch (responseCode.charAt(0)){
+            case '1', '3' -> responseCode ="<span class='badge white-text orange'>"+responseCode+"</span>";
+            case '2' -> responseCode ="<span class='badge white-text green'>"+responseCode+"</span>";
+            case '4', '5' -> responseCode ="<span class='badge white-text red'>"+responseCode+"</span>";
         }
         tableHTMLFrame = tableHTMLFrame.replaceAll("%RequestMessage%", requestMessage);
         tableHTMLFrame = tableHTMLFrame.replaceAll("%runtimeHTMLReport-div%", reqRuntimeHTMLReportDivID);
